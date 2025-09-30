@@ -17,18 +17,18 @@ int main (int argc, const char* argv[])
         //compression error bound
         //ABS/REL error bound
     std::string inFile, outFile, colName, errBound, errBoundType;
-    if ( argc != 5 ) 
+    if ( argc != 6 ) 
     {
         std::cout << "Usage: compress_ms <input_ms> <output_ms> <column_name> <error_bound> <ABS/REL>" << std:: endl;
         return -1;
     }
     else
     {
-        inFile = argv[0];
-        outFile = argv[1];
-        colName = argv[2];
-        errBound = argv[3];
-        errBoundType = argv[4]; 
+        inFile = argv[1];
+        outFile = argv[2];
+        colName = argv[3];
+        errBound = argv[4];
+        errBoundType = argv[5]; 
     }
 
     {
@@ -37,20 +37,20 @@ int main (int argc, const char* argv[])
         
         MeasurementSet msIn(inFile);
         ArrayColumn<Complex> dataCol(msIn, colName);
-        TableDesc td("", "1", TableDesc::Scratch);
-        td.addColumn(ArrayColumnDesc<Complex>(colName, dataCol.shape(0), ColumnDesc::FixedShape));
-        SetupNewTable newTab(outFile, td, Table::New);
+        TableDesc msTD = msIn.tableDesc();
+        SetupNewTable newTab(outFile, msTD, Table::New);
         
         //copy measurement set
-        newTab.bindAll(adios2stman);
+        newTab.bindColumn(colName, adios2stman);
         MeasurementSet msOut(newTab);
-        msOut.addRow(msIn.nrow());
         TableCopy::copySubTables(msOut, msIn);
-        TableCopy::copyColumnData(msIn, colName, msOut, colName, false);
+        msOut.addRow(msIn.nrow());
         
-
-        
-        
+        for (uInt i=0; i<msTD.ncolumn(); i++)
+        {
+            std::string colName_i = msTD.columnDesc(i).name();
+            TableCopy::copyColumnData(msIn, colName_i, msOut, colName_i, false);
+        }   
     }
 
     //check output
