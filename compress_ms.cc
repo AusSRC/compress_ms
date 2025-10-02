@@ -33,7 +33,14 @@ int main (int argc, const char* argv[])
 
     {
         //define adios storage manager
-        Adios2StMan adios2stman(std::string(""),{},{{}},{{{"Variable", colName},{"Operator", "mgard"},{"Accuracy", errBound}}});
+        Adios2StMan adios2stman(
+            std::string(""),
+            {},
+            {{}},
+            {{{"Variable", colName},
+            {"Operator", "mgard"},
+            {"Accuracy", errBound},
+            {"Mode", errBoundType}}});
         
         MeasurementSet msIn(inFile);
         ArrayColumn<Complex> dataCol(msIn, colName);
