@@ -74,8 +74,13 @@ int main (int argc, const char* argv[])
         std::cout << "Opening MeasurementSet" << std::endl;
 
         MeasurementSet msIn(inFile);
-        ArrayColumn<float> dataCol(msIn, colName);
-        TableDesc msTD = msIn.tableDesc();
+        ArrayColumn<Complex> dataCol(msIn, colName);
+        TableDesc msTD(msIn.tableDesc());
+        ColumnDesc msCD(msTD.columnDesc(colName));
+        msCD.setShape(dataCol.shape(0));
+        msCD.setOptions(ColumnDesc::FixedShape);
+        msTD.removeColumn(colName);
+        msTD.addColumn(msCD);
         SetupNewTable newTab(outFile, msTD, Table::New);
         
         std::cout << "Starting Copy" << std::endl;
@@ -101,6 +106,8 @@ int main (int argc, const char* argv[])
             newTab.bindColumn(colName, adios2stman);
         }
         MeasurementSet msOut(newTab);
+        ColumnDesc outColDesc = msOut.tableDesc().columnDesc("DATA");
+        outColDesc.setOptions(ColumnDesc::FixedShape);
         TableCopy::copySubTables(msOut, msIn);
         msOut.addRow(msIn.nrow());
         
@@ -108,7 +115,17 @@ int main (int argc, const char* argv[])
         {
             std::string colName_i = msTD.columnDesc(i).name();
             std::cout << "Copying Column: " + colName_i << std::endl;
-            TableCopy::copyColumnData(msIn, colName_i, msOut, colName_i, false);
+            if (colName_i == colName)
+            {
+                Array<Complex> data = dataCol.getColumn();
+                std::cout << data.shape() << std::endl;
+                ArrayColumn<Complex> outCol(msOut, colName);
+                outCol.putColumn(data);
+            }
+            else
+            {
+                TableCopy::copyColumnData(msIn, colName_i, msOut, colName_i, false);
+            }
         }   
     }
 
