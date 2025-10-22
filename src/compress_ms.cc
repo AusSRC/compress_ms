@@ -16,19 +16,21 @@ int main (int argc, const char* argv[])
         //column name
         //compression error bound
         //ABS/REL error bound
-    std::string inFile, outFile, colName, errBound, errBoundType, configFile;
-    if ( argc == 6 ) 
+    std::string inFile, outFile, operation, colName, errBound, errBoundType, configFile;
+    if ( argc == 7 ) 
     {
         std::cout << "Assuming manual parameter entries" << std::endl;
         inFile = argv[1];
         outFile = argv[2];
-        colName = argv[3];
-        errBound = argv[4];
-        errBoundType = argv[5]; 
+        operation = argv[3];
+        colName = argv[4];
+        errBound = argv[5];
+        errBoundType = argv[6]; 
 
         std::cout << "Parameters received: \n \
         \tinput_ms: " + inFile + "\n \
         \toutput_ms: " + outFile + "\n \
+        \toperator: " + operation + "\n \
         \tcolumn_name: " + colName + "\n \
         \terror_bound: " + errBound + "\n \
         \tABS/REL: " + errBoundType << std::endl;
@@ -62,7 +64,7 @@ int main (int argc, const char* argv[])
     }
     else
     {
-        std::cout << "Usage: compress_ms <input_ms> <output_ms> <column_name> <error_bound> <ABS/REL>\n \
+        std::cout << "Usage: compress_ms <input_ms> <output_ms> <operator> <column_name> <error_bound> <ABS/REL>\n \
         \tcompress_ms <input_ms> <output_ms> <column_name> <config_file>" << std:: endl;
         return -1;
     }
@@ -74,10 +76,25 @@ int main (int argc, const char* argv[])
         std::cout << "Opening MeasurementSet" << std::endl;
 
         MeasurementSet msIn(inFile);
-        ArrayColumn<Complex> dataCol(msIn, colName);
+        
         TableDesc msTD(msIn.tableDesc());
         ColumnDesc msCD(msTD.columnDesc(colName));
-        msCD.setShape(dataCol.shape(0));
+        DataType colType = msCD.dataType();
+        if (isReal(colType))
+        {
+            ArrayColumn<float> dataCol(msIn, colName);
+            msCD.setShape(dataCol.shape(0));
+        }
+        else if (isComplex(colType))
+        {
+            ArrayColumn<Complex> dataCol(msIn, colName);
+            msCD.setShape(dataCol.shape(0));
+        }
+        else
+        {
+            throw std::invalid_argument("The type of the column is unrecognised, please ensure it is either float or complex");
+        }
+        
         msCD.setOptions(ColumnDesc::FixedShape);
         msTD.removeColumn(colName);
         msTD.addColumn(msCD);
@@ -92,7 +109,7 @@ int main (int argc, const char* argv[])
                 {},
                 {{}},
                 {{{"Variable", colName},
-                {"Operator", "mgard"},
+                {"Operator", operation},
                 {"Accuracy", errBound},
                 {"Mode", errBoundType}}});
             newTab.bindColumn(colName, adios2stman);
@@ -117,10 +134,22 @@ int main (int argc, const char* argv[])
             std::cout << "Copying Column: " + colName_i << std::endl;
             if (colName_i == colName)
             {
-                Array<Complex> data = dataCol.getColumn();
-                std::cout << data.shape() << std::endl;
-                ArrayColumn<Complex> outCol(msOut, colName);
-                outCol.putColumn(data);
+                if (isReal(colType))
+                {
+                    ArrayColumn<float> dataCol(msIn, colName);
+                    Array<float> data = dataCol.getColumn();
+                    std::cout << data.shape() << std::endl;
+                    ArrayColumn<float> outCol(msOut, colName);
+                    outCol.putColumn(data);
+                }
+                else if (isComplex(colType))
+                {
+                    ArrayColumn<Complex> dataCol(msIn, colName);
+                    Array<Complex> data = dataCol.getColumn();
+                    std::cout << data.shape() << std::endl;
+                    ArrayColumn<Complex> outCol(msOut, colName);
+                    outCol.putColumn(data);
+                }
             }
             else
             {
