@@ -1,0 +1,30 @@
+- IO: "Adios2StMan"
+  Engine:
+    Type: "BP5"
+  Variables:
+    - Variable: "DATA_none"
+    - Variable: "DATA_mgard"
+      Operations:
+        - Type: mgard
+          tolerance: 0.1
+          lossless: Huffman_Zstd
+          mode: ABS
+          s: 0
+    - Variable: "DATA_zfp"
+      Operations:
+        - Type: zfp
+          accuracy: 0.1
+    - Variable: "DATA_sz"
+      Operations:
+        - Type: sz
+          errboundmode: "ABS"
+          abserrbound: 0.1
+    - Variable: "DATA_bzip2"
+      Operations: 
+        - Type: bzip2
+    - Variable: "DATA_mgard_complex"
+      Operations: 
+        - Type: mgard_complex
+          accuracy: 0.1
+          lossless: Huffman_Zstd
+          s: 0

@@ -75,7 +75,7 @@ int main (int argc, const char* argv[])
         
         std::cout << "Opening MeasurementSet" << std::endl;
 
-        MeasurementSet msIn(inFile);
+        Table msIn(inFile);
         
         TableDesc msTD(msIn.tableDesc());
         ColumnDesc msCD(msTD.columnDesc(colName));
@@ -83,21 +83,32 @@ int main (int argc, const char* argv[])
         if (isReal(colType))
         {
             ArrayColumn<float> dataCol(msIn, colName);
-            msCD.setShape(dataCol.shape(0));
+            if (msCD.options() != ColumnDesc::FixedShape)
+            {
+                msCD.setShape(dataCol.shape(0));
+            }
+            
         }
         else if (isComplex(colType))
         {
             ArrayColumn<Complex> dataCol(msIn, colName);
-            msCD.setShape(dataCol.shape(0));
+            if (msCD.options() != ColumnDesc::FixedShape)
+            {
+                msCD.setShape(dataCol.shape(0));
+            }
         }
         else
         {
             throw std::invalid_argument("The type of the column is unrecognised, please ensure it is either float or complex");
         }
         
-        msCD.setOptions(ColumnDesc::FixedShape);
-        msTD.removeColumn(colName);
-        msTD.addColumn(msCD);
+        if (msCD.options() != ColumnDesc::FixedShape)
+        {
+            msCD.setOptions(ColumnDesc::FixedShape);
+            msTD.removeColumn(colName);
+            msTD.addColumn(msCD);
+        }
+        
         SetupNewTable newTab(outFile, msTD, Table::New);
         
         std::cout << "Starting Copy" << std::endl;
@@ -122,8 +133,8 @@ int main (int argc, const char* argv[])
                 from_config);
             newTab.bindColumn(colName, adios2stman);
         }
-        MeasurementSet msOut(newTab);
-        ColumnDesc outColDesc = msOut.tableDesc().columnDesc("DATA");
+        Table msOut(newTab);
+        ColumnDesc outColDesc = msOut.tableDesc().columnDesc(colName);
         outColDesc.setOptions(ColumnDesc::FixedShape);
         TableCopy::copySubTables(msOut, msIn);
         msOut.addRow(msIn.nrow());
