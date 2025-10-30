@@ -92,7 +92,7 @@ def read_and_check():
     diff = abs(data_orig - data_comp)
     check = (diff > threshold).sum()
     check_pt = check/data_orig.size
-    print(f'check for operator: {COMPRESSOR} returned {check} difference(s) above threshold or {check_pt*100}%')
+    print(f'check for operator: {COMPRESSOR} returned {check} difference(s) above threshold ({threshold}) or {check_pt*100:0.2f}%')
     print(f'Check percentage is {CHECK_THRESHOLD*100}%')
     if check_pt > CHECK_THRESHOLD:
         raise AssertionError("The Check was above the threshold, failing.")
