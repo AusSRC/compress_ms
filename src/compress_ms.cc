@@ -16,8 +16,9 @@ int main (int argc, const char* argv[])
         //column name
         //compression error bound
         //ABS/REL error bound
-    std::string inFile, outFile, operation, colName, errBound, errBoundType, configFile;
-    if ( argc == 7 ) 
+    std::string inFile, outFile, operation, colName, errBound, errBoundType, configFile, stepsize_str;
+    int stepsize;
+    if ( argc == 8 ) 
     {
         std::cout << "Assuming manual parameter entries" << std::endl;
         inFile = argv[1];
@@ -25,14 +26,15 @@ int main (int argc, const char* argv[])
         operation = argv[3];
         colName = argv[4];
         errBound = argv[5];
-        errBoundType = argv[6]; 
+        errBoundType = argv[6];
+        stepsize_str = argv[7];
+
 
         std::cout << "Parameters received: \n \
         \tinput_ms: " + inFile + "\n \
         \toutput_ms: " + outFile + "\n \
         \toperator: " + operation + "\n \
         \tcolumn_name: " + colName + "\n \
-        \terror_bound: " + errBound + "\n \
         \tABS/REL: " + errBoundType << std::endl;
 
         if ( errBoundType != "ABS" && errBoundType != "REL")
@@ -41,20 +43,21 @@ int main (int argc, const char* argv[])
         }
         try 
         {
-            std::cout << "The error bound parsed as a number is " + std::to_string(std::stof(errBound)) << std::endl;
+            std::cout << "Error Bound: " + std::to_string(std::stof(errBound)) << std::endl;
         }
         catch (const std::invalid_argument& ex)
         {
             throw std::invalid_argument("Error bound must be a number.");
         }
     }
-    else if ( argc == 5)
+    else if ( argc == 6)
     {
         std::cout << "Assuming config file entry" << std::endl;
         inFile = argv[1];
         outFile = argv[2];
         colName = argv[3];
         configFile = argv[4];
+        stepsize_str = argv[5];
 
         std::cout << "Parameters received: \n \
         \tinput_ms: " + inFile + "\n \
@@ -64,11 +67,21 @@ int main (int argc, const char* argv[])
     }
     else
     {
-        std::cout << "Usage: compress_ms <input_ms> <output_ms> <operator> <column_name> <error_bound> <ABS/REL>\n \
-        \tcompress_ms <input_ms> <output_ms> <column_name> <config_file>" << std:: endl;
+        std::cout << "Usage: compress_ms <input_ms> <output_ms> <operator> <column_name> <error_bound> <ABS/REL> <stepsize>\n \
+        \tcompress_ms <input_ms> <output_ms> <column_name> <config_file> <stepsize>" << std:: endl;
         return -1;
     }
     
+    try
+    {
+        stepsize = std::stoi(stepsize_str);
+        std::cout << "Step Size: " + std::to_string(stepsize) << std::endl;
+    }
+    catch (const std::invalid_argument& ex)
+    {
+        throw std::invalid_argument("Step size must be an integer.");
+    }
+
     {
         //define adios storage manager
         
