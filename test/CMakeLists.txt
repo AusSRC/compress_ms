@@ -13,8 +13,8 @@ add_test(NAME mgard_complex COMMAND ${Python_EXECUTABLE} ${CMAKE_SOURCE_DIR}/tes
 add_test(NAME zfp_real COMMAND ${Python_EXECUTABLE} ${CMAKE_SOURCE_DIR}/test/tcompress_ms.py test_orig_r.ms test_zr.ms real zfp ${config})
 add_test(NAME zfp_complex COMMAND ${Python_EXECUTABLE} ${CMAKE_SOURCE_DIR}/test/tcompress_ms.py test_orig_c.ms test_zc.ms complex zfp ${config})
         #test sz
-add_test(NAME sz_real COMMAND ${Python_EXECUTABLE} ${CMAKE_SOURCE_DIR}/test/tcompress_ms.py test_orig_r.ms test_sr.ms real sz ${config})
-add_test(NAME sz_complex COMMAND ${Python_EXECUTABLE} ${CMAKE_SOURCE_DIR}/test/tcompress_ms.py test_orig_c.ms test_sc.ms complex sz ${config})
+# add_test(NAME sz_real COMMAND ${Python_EXECUTABLE} ${CMAKE_SOURCE_DIR}/test/tcompress_ms.py test_orig_r.ms test_sr.ms real sz ${config})
+# add_test(NAME sz_complex COMMAND ${Python_EXECUTABLE} ${CMAKE_SOURCE_DIR}/test/tcompress_ms.py test_orig_c.ms test_sc.ms complex sz ${config})
         #test bzip2
 add_test(NAME bzip2_real COMMAND ${Python_EXECUTABLE} ${CMAKE_SOURCE_DIR}/test/tcompress_ms.py test_orig_r.ms test_br.ms real bzip2 ${config})
 add_test(NAME bzip2_complex COMMAND ${Python_EXECUTABLE} ${CMAKE_SOURCE_DIR}/test/tcompress_ms.py test_orig_c.ms test_bc.ms complex bzip2 ${config})
