@@ -176,7 +176,7 @@ int main (int argc, const char* argv[])
                     }
                     if (laststepsize > 0)
                     {
-                        rwslice = Slicer(IPosition(1,i*stepsize), IPosition(1, stepsize));
+                        rwslice = Slicer(IPosition(1,nsteps*stepsize), IPosition(1, laststepsize));
                         dataCol.getColumnRange(rwslice, data, True);
                         std::cout << "Adding Last step with shape " + data.shape().toString() << std::endl;
                         outCol.putColumnRange(rwslice, data);
@@ -193,15 +193,17 @@ int main (int argc, const char* argv[])
                     ArrayColumn<Complex> outCol(msOut, colName);
                     for (int i = 0; i < nsteps; i++)
                     {
-                        data = dataCol.getColumnRange(Slicer(i*stepsize, stepsize));
+                        rwslice = Slicer(IPosition(1,i*stepsize), IPosition(1, stepsize));
+                        dataCol.getColumnRange(rwslice, data, True);
                         std::cout << "Operating on step " + std::to_string(i) + " with shape " + data.shape().toString() << std::endl;
-                        outCol.putColumnRange(Slicer(i*stepsize, stepsize), data);
+                        outCol.putColumnRange(rwslice, data);
                     }
                     if (laststepsize > 0)
                     {
-                        Array<Complex> data = dataCol.getColumnRange(Slicer((nsteps-1)*stepsize, laststepsize));
+                        rwslice = Slicer(IPosition(1,nsteps*stepsize), IPosition(1, laststepsize));
+                        dataCol.getColumnRange(rwslice, data, True);
                         std::cout << "Adding Last step with shape " + data.shape().toString() << std::endl;
-                        outCol.putColumnRange(Slicer((nsteps-1)*stepsize, laststepsize), data);
+                        outCol.putColumnRange(rwslice, data);
                     }
                 }
             }

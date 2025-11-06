@@ -95,9 +95,10 @@ def read_and_check():
     check = (diff > threshold).sum()
     check_pt = check/data_orig.size
     print(f'check for operator: {COMPRESSOR} returned {check} difference(s) above threshold ({threshold}) or {check_pt*100:0.2f}%')
-    print(f'Check percentage is {CHECK_THRESHOLD*100}%')
-    if check_pt > CHECK_THRESHOLD:
-        raise AssertionError("The Check was above the threshold, failing.")
+    if not lossless:
+        print(f'Check percentage is {CHECK_THRESHOLD*100}%')
+        if check_pt > CHECK_THRESHOLD:
+            raise AssertionError("The Check was above the threshold, failing.")
     print(f'Mean difference is {mdiff}')
     if lossless and (mdiff > 0):
         raise AssertionError("Lossless compression should not have mean_diff > 0, failing.")

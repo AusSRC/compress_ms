@@ -9,7 +9,7 @@
           tolerance: 0.1
           lossless: Huffman_Zstd
           mode: ABS
-          s: 0
+          s: inf
     - Variable: "DATA_zfp"
       Operations:
         - Type: zfp
@@ -27,4 +27,4 @@
         - Type: mgard_complex
           accuracy: 0.1
           lossless: Huffman_Zstd
-          s: 0
+          s: inf
