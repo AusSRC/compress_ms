@@ -10,12 +10,6 @@ using namespace casacore;
 int main (int argc, const char* argv[])
 {
     // MPI_Init(&argc, &argv);
-    //parse args
-        //original filepath
-        //output filepath
-        //column name
-        //compression error bound
-        //ABS/REL error bound
     std::string inFile, outFile, operation, colName, errBound, errBoundType, configFile, stepsize_str;
     int stepsize;
     if ( argc == 8 ) 
@@ -93,6 +87,7 @@ int main (int argc, const char* argv[])
         TableDesc msTD(msIn.tableDesc());
         ColumnDesc msCD(msTD.columnDesc(colName));
         DataType colType = msCD.dataType();
+
         if (isReal(colType))
         {
             ArrayColumn<float> dataCol(msIn, colName);
@@ -125,6 +120,7 @@ int main (int argc, const char* argv[])
         SetupNewTable newTab(outFile, msTD, Table::New);
         
         std::cout << "Starting Copy" << std::endl;
+
         //copy measurement set
         if (configFile.empty()) 
         {
@@ -151,6 +147,10 @@ int main (int argc, const char* argv[])
         outColDesc.setOptions(ColumnDesc::FixedShape);
         TableCopy::copySubTables(msOut, msIn);
         msOut.addRow(msIn.nrow());
+
+        int nrows, nsteps, laststepsize;
+        IPosition cellShape;
+        Slicer rwslice;
         
         for (uInt i=0; i<msTD.ncolumn(); i++)
         {
@@ -161,18 +161,48 @@ int main (int argc, const char* argv[])
                 if (isReal(colType))
                 {
                     ArrayColumn<float> dataCol(msIn, colName);
-                    Array<float> data = dataCol.getColumn();
-                    std::cout << data.shape() << std::endl;
+                    nrows = dataCol.nrow();
+                    nsteps = nrows/stepsize;
+                    laststepsize = nrows - nsteps*stepsize;
+                    cellShape = dataCol.shape(0);
+                    Array<float> data(cellShape.concatenate(IPosition(1,stepsize)));
                     ArrayColumn<float> outCol(msOut, colName);
-                    outCol.putColumn(data);
+                    for (int i = 0; i < nsteps; i++)
+                    {
+                        rwslice = Slicer(IPosition(1,i*stepsize), IPosition(1, stepsize));
+                        dataCol.getColumnRange(rwslice, data, True);
+                        std::cout << "Operating on step " + std::to_string(i) + " with shape " + data.shape().toString() << std::endl;
+                        outCol.putColumnRange(rwslice, data);
+                    }
+                    if (laststepsize > 0)
+                    {
+                        rwslice = Slicer(IPosition(1,i*stepsize), IPosition(1, stepsize));
+                        dataCol.getColumnRange(rwslice, data, True);
+                        std::cout << "Adding Last step with shape " + data.shape().toString() << std::endl;
+                        outCol.putColumnRange(rwslice, data);
+                    }
                 }
                 else if (isComplex(colType))
                 {
                     ArrayColumn<Complex> dataCol(msIn, colName);
-                    Array<Complex> data = dataCol.getColumn();
-                    std::cout << data.shape() << std::endl;
+                    nrows = dataCol.nrow();
+                    nsteps = nrows/stepsize;
+                    laststepsize = nrows - nsteps*stepsize;
+                    cellShape = dataCol.shape(0);
+                    Array<Complex> data(cellShape.concatenate(IPosition(1,stepsize)));
                     ArrayColumn<Complex> outCol(msOut, colName);
-                    outCol.putColumn(data);
+                    for (int i = 0; i < nsteps; i++)
+                    {
+                        data = dataCol.getColumnRange(Slicer(i*stepsize, stepsize));
+                        std::cout << "Operating on step " + std::to_string(i) + " with shape " + data.shape().toString() << std::endl;
+                        outCol.putColumnRange(Slicer(i*stepsize, stepsize), data);
+                    }
+                    if (laststepsize > 0)
+                    {
+                        Array<Complex> data = dataCol.getColumnRange(Slicer((nsteps-1)*stepsize, laststepsize));
+                        std::cout << "Adding Last step with shape " + data.shape().toString() << std::endl;
+                        outCol.putColumnRange(Slicer((nsteps-1)*stepsize, laststepsize), data);
+                    }
                 }
             }
             else

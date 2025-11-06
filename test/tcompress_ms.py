@@ -22,7 +22,7 @@ def parse_args():
 
 def run_test():
     create_MS()
-    sp.check_call(["compress_ms", ORIG, COMPRESSED, COLNAME, CONFIG])
+    sp.check_call(["compress_ms", ORIG, COMPRESSED, COLNAME, CONFIG, STEP_SIZE])
     read_and_check()
     pass
 
@@ -108,4 +108,5 @@ if __name__ == '__main__':
     COLNAME = f"DATA_{COMPRESSOR}"
     CONFIG = args.config_file
     CHECK_THRESHOLD = 0.05
+    STEP_SIZE = "401"
     run_test()
