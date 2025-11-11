@@ -7,6 +7,7 @@ set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 find_package(Casacore)
 find_package(MPI REQUIRED)
 find_package(Python REQUIRED)
+find_package(Boost 1.89 COMPONENTS program_options REQUIRED)
 
 enable_testing()
 

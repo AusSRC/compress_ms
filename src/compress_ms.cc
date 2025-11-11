@@ -3,77 +3,93 @@
 #include <casacore/tables/Tables/Table.h>
 #include <casacore/tables/Tables/TableCopy.h>
 #include <casacore/tables/Tables/SetupNewTab.h>
+#include <boost/program_options.hpp>
 // #include <mpi.h>
 
 using namespace casacore;
+namespace po = boost::program_options;
 
 int main (int argc, const char* argv[])
 {
     // MPI_Init(&argc, &argv);
-    std::string inFile, outFile, operation, colName, errBound, errBoundType, configFile, stepsize_str;
-    int stepsize;
-    if ( argc == 8 ) 
+    po::options_description hidden;
+    hidden.add_options()
+        ("input_ms", po::value<std::string>()->required(), "MeasurementSet to be compressed")
+        ("output_ms", po::value<std::string>()->required(), "Output name of the compressed MeasurementSet")
+        ("column_name", po::value<std::string>()->required(), "Name of the column to be compressed");
+    po::options_description visible("Allowed Options");
+    visible.add_options()
+        ("help,h", "produce help message")
+        ("compressor,c", po::value<std::string>()->default_value("mgard"), "The compressor to use, see adios2 installation for valid operators (default: mgard)")
+        ("error_bound,e", po::value<float>()->default_value(0.01), "Error bound used by the compressor to determine the level of compression (default: 0.01)")
+        ("error_bound_type,t", po::value<std::string>()->default_value("ABS"), "The type of error bound (i.e. for MGARD, this is ABS or REL)")
+        ("step_size,s", po::value<int>(), "The size of steps to split the data into (i.e. number of rows), remaining rows will be processed in the last step")
+        ("num_steps,n", po::value<int>(), "The number of steps to split the data into")
+        ("ADIOS2_config, a", po::value<std::string>(), "A yaml/xml config to be passed to the ADIOS2 storage manager. A useful alternative to manually setting the operator parameters.");
+    
+    po::positional_options_description p;
+    p.add("input_ms",1);
+    p.add("output_ms",1);
+    p.add("column_name",1);
+
+    po::options_description desc;
+    desc.add(visible).add(hidden);
+
+    po::variables_map vm;
+    po::store(po::command_line_parser(argc, argv).options(desc).positional(p).run(), vm);
+    
+
+    if (vm.count("help") || argc == 1)
     {
-        std::cout << "Assuming manual parameter entries" << std::endl;
-        inFile = argv[1];
-        outFile = argv[2];
-        operation = argv[3];
-        colName = argv[4];
-        errBound = argv[5];
-        errBoundType = argv[6];
-        stepsize_str = argv[7];
-
-
-        std::cout << "Parameters received: \n \
-        \tinput_ms: " + inFile + "\n \
-        \toutput_ms: " + outFile + "\n \
-        \toperator: " + operation + "\n \
-        \tcolumn_name: " + colName + "\n \
-        \tABS/REL: " + errBoundType << std::endl;
-
-        if ( errBoundType != "ABS" && errBoundType != "REL")
-        {
-            throw std::invalid_argument("Ensure that the <ABS/REL> parameter is either ABS or REL");
-        }
-        try 
-        {
-            std::cout << "Error Bound: " + std::to_string(std::stof(errBound)) << std::endl;
-        }
-        catch (const std::invalid_argument& ex)
-        {
-            throw std::invalid_argument("Error bound must be a number.");
-        }
+        std::cout << "Usage: <input_ms> <output_ms> <column_name> [opts] \n" << std::endl;
+        std::cout << visible << std::endl;
+        return 1;
     }
-    else if ( argc == 6)
+    if (!vm.count("input_ms"))
     {
-        std::cout << "Assuming config file entry" << std::endl;
-        inFile = argv[1];
-        outFile = argv[2];
-        colName = argv[3];
-        configFile = argv[4];
-        stepsize_str = argv[5];
+        throw std::invalid_argument("'input_ms' argument is required");
+    }
+    if (!vm.count("output_ms"))
+    {
+        throw std::invalid_argument("'output_ms' argument is required");
+    }
+    if (!vm.count("column_name"))
+    {
+        throw std::invalid_argument("'column_name' argument is required");
+    }
+    po::notify(vm);
 
-        std::cout << "Parameters received: \n \
-        \tinput_ms: " + inFile + "\n \
-        \toutput_ms: " + outFile + "\n \
-        \tcolumn_name: " + colName + "\n \
-        \tconfig_file: " + configFile << std::endl;
+    std::string inFile = vm["input_ms"].as<std::string>();
+    std::string outFile = vm["output_ms"].as<std::string>();
+    std::string colName = vm["column_name"].as<std::string>();
+    std::string operation = vm["compressor"].as<std::string>();
+    std::string errBound = std::to_string(vm["error_bound"].as<float>());
+    std::string errBoundType = vm["error_bound_type"].as<std::string>();
+    int stepsize;
+    int nsteps;
+    std::string configFile;
+
+    if (vm.count("step_size") and vm.count("num_steps"))
+    {
+        throw std::invalid_argument("step_size and num_steps are mutually exclusive, please use one or the other");
+    }
+    else if (!vm.count("step_size") and !vm.count("num_steps"))
+    {
+        std::cout << "Warning: neither step_size nor num_steps were given, assuming a single step. This may fail for very large files." << std::endl;
+        nsteps = 1;
+    }
+    else if (vm.count("step_size"))
+    {
+        stepsize = vm["step_size"].as<int>();
     }
     else
     {
-        std::cout << "Usage: compress_ms <input_ms> <output_ms> <operator> <column_name> <error_bound> <ABS/REL> <stepsize>\n \
-        \tcompress_ms <input_ms> <output_ms> <column_name> <config_file> <stepsize>" << std:: endl;
-        return -1;
+        nsteps = vm["num_steps"].as<int>();
     }
-    
-    try
+
+    if (vm.count("ADIOS2_config"))
     {
-        stepsize = std::stoi(stepsize_str);
-        std::cout << "Step Size: " + std::to_string(stepsize) << std::endl;
-    }
-    catch (const std::invalid_argument& ex)
-    {
-        throw std::invalid_argument("Step size must be an integer.");
+        configFile = vm["ADIOS2_config"].as<std::string>();
     }
 
     {
@@ -148,7 +164,7 @@ int main (int argc, const char* argv[])
         TableCopy::copySubTables(msOut, msIn);
         msOut.addRow(msIn.nrow());
 
-        int nrows, nsteps, laststepsize;
+        int nrows, laststepsize;
         IPosition cellShape;
         Slicer rwslice;
         
@@ -162,8 +178,16 @@ int main (int argc, const char* argv[])
                 {
                     ArrayColumn<float> dataCol(msIn, colName);
                     nrows = dataCol.nrow();
-                    nsteps = nrows/stepsize;
-                    laststepsize = nrows - nsteps*stepsize;
+                    if (stepsize)
+                    {
+                        nsteps = nrows/stepsize;
+                        laststepsize = nrows - nsteps*stepsize;
+                    }
+                    else
+                    {
+                        stepsize = nrows/nsteps;
+                        laststepsize = nrows - nsteps*stepsize;
+                    }
                     cellShape = dataCol.shape(0);
                     Array<float> data(cellShape.concatenate(IPosition(1,stepsize)));
                     ArrayColumn<float> outCol(msOut, colName);
@@ -186,8 +210,16 @@ int main (int argc, const char* argv[])
                 {
                     ArrayColumn<Complex> dataCol(msIn, colName);
                     nrows = dataCol.nrow();
-                    nsteps = nrows/stepsize;
-                    laststepsize = nrows - nsteps*stepsize;
+                    if (stepsize)
+                    {
+                        nsteps = nrows/stepsize;
+                        laststepsize = nrows - nsteps*stepsize;
+                    }
+                    else
+                    {
+                        stepsize = nrows/nsteps;
+                        laststepsize = nrows - nsteps*stepsize;
+                    }
                     cellShape = dataCol.shape(0);
                     Array<Complex> data(cellShape.concatenate(IPosition(1,stepsize)));
                     ArrayColumn<Complex> outCol(msOut, colName);

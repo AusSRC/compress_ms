@@ -1,6 +1,6 @@
 add_executable(compress_ms compress_ms.cc)
 
-target_link_libraries(compress_ms PUBLIC ${CASACORE_LIBRARIES})
+target_link_libraries(compress_ms PUBLIC ${CASACORE_LIBRARIES} Boost::program_options)
 target_include_directories(
     compress_ms PUBLIC 
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}> 

@@ -22,7 +22,7 @@ def parse_args():
 
 def run_test():
     create_MS()
-    sp.check_call(["compress_ms", ORIG, COMPRESSED, COLNAME, CONFIG, STEP_SIZE])
+    sp.check_call(["compress_ms", ORIG, COMPRESSED, COLNAME, "--ADIOS2_config", CONFIG, "--step_size", STEP_SIZE])
     read_and_check()
     pass
 
