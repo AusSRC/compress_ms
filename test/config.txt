@@ -1,0 +1,5 @@
+input_ms=test_config.ms
+output_ms=test_config_out.ms
+column_name=DATA
+compressor=bzip2
+step_size=400

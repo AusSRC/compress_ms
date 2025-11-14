@@ -20,7 +20,8 @@ int main (int argc, const char* argv[])
     po::options_description visible("Allowed Options");
     visible.add_options()
         ("help,h", "produce help message")
-        ("compressor,c", po::value<std::string>()->default_value("mgard"), "The compressor to use, see adios2 installation for valid operators (default: mgard)")
+        ("config,c", po::value<std::string>(), "Config file name containing argument pairs like \"input_ms=test.ms\"")
+        ("compressor,o", po::value<std::string>()->default_value("mgard"), "The compressor to use, see adios2 installation for valid operators (default: mgard)")
         ("error_bound,e", po::value<float>()->default_value(0.01), "Error bound used by the compressor to determine the level of compression (default: 0.01)")
         ("error_bound_type,t", po::value<std::string>()->default_value("ABS"), "The type of error bound (i.e. for MGARD, this is ABS or REL)")
         ("step_size,s", po::value<int>(), "The size of steps to split the data into (i.e. number of rows), remaining rows will be processed in the last step")
@@ -37,7 +38,20 @@ int main (int argc, const char* argv[])
 
     po::variables_map vm;
     po::store(po::command_line_parser(argc, argv).options(desc).positional(p).run(), vm);
-    
+
+    if (vm.count("config"))
+    {  
+        std::string config = vm["config"].as<std::string>();
+        std::ifstream ifs(config.c_str());
+        if (!ifs)
+        {
+            throw std::invalid_argument("Could not open config file: " + config);
+        }
+        else
+        {
+            po::store(po::parse_config_file(ifs, desc), vm);
+        }
+    }
 
     if (vm.count("help") || argc == 1)
     {
