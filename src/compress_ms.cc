@@ -55,7 +55,7 @@ int main (int argc, const char* argv[])
 
     if (vm.count("help") || argc == 1)
     {
-        std::cout << "Usage: <input_ms> <output_ms> <column_name> [opts] \n" << std::endl;
+        std::cout << "Usage: compress_ms <input_ms> <output_ms> <column_name> [opts] \n" << std::endl;
         std::cout << visible << std::endl;
         return 1;
     }

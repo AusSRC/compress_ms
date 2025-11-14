@@ -1,16 +1,43 @@
 # Compress MS
+
 ## Description
-Copy a measurement set and replace a column's storage manager with the Adios2 Storage manager. At the same time, compress the desired column with MGARD.
+Copy a measurement set and replace a column's storage manager with the Adios2 Storage manager. At the same time, compress the desired column with the specified compressor.
+
 ## Dependencies (in compilation order)
-- MGARD
+- cmake
+- The required compressor (eg. MGARD, zfp), see ADIOS2 for list of supported operators
 - ADIOS2
 - casacore (> 3.5.0)
+- boost program_options
+### for testing
+- python (> 3.8)
+- zfp
+- MGARD
+
+## Build
+from within compress_ms
+```
+mkdir build
+cd build
+cmake ..
+make
+make install
+```
+
 ## Usage
 ```
-compress_ms <input_ms> <output_ms> <column_name> <error_bound> <ABS/REL>
+Usage: compress_ms <input_ms> <output_ms> <column_name> [options] 
 ```
-- `input_ms`: The Measurement Set (MS) to be copied
-- `output_ms`: The desired name of the output MS
-- `column_name`: The column to be converted/compressed (default: "DATA")
-- `error_bound`: The desired accuracy with with which to compress the data with MGARD
-- `ABS/REL`: Whether to interpret the previously defined as an Absolute error bound or as a relative error bound (relative to the range of the data. ie. as a proportion of $`(x_{max}-x_{min})`$).
+### Command Line Options:
+- `-h [ --help ]` -- produce help message
+- `-c [ --config ] <config filename>` -- Config file name containing argument pairs like `input_ms=test.ms`
+- `-o [ --compressor ] <compressor name>`--The compressor to use, see adios2 installation for valid operators (default: mgard)
+- `-e [ --error_bound ] <error bound>` -- Error bound used by the compressor to determine the level of compression (default: 0.01)
+- `-t [ --error_bound_type ] <error bound type>` -- The type of error bound (i.e. for MGARD, this is ABS or REL)
+- `-s [ --step_size ] <step size>`-- The size of steps to split the data into (i.e. number of rows), remaining rows will be processed in the last step
+- `-n [ --num_steps ] <number of steps>` -- The number of steps to split the data into
+- `--ADIOS2_config <ADIOS2 config filename>` -- A yaml/xml config to be passed to the ADIOS2 storage manager. A useful alternative to manually setting the operator parameters.
+### Extra Config file Options:
+- `input_ms=<input filename>` -- The name of the input file
+- `output_ms=<output filename>` -- The desired name of the output file
+- `column_name=<column name>` -- The name of the column to apply the adios2 storage manager (and the selected compression operator) to.
