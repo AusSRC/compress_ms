@@ -1,17 +1,19 @@
 FROM ${USER}/casacore
 
+# copy source code
 COPY  ./ /code/compress_ms/
 
+# ensure we can find boost
 ENV BOOST_ROOT=/usr/local
-# ENV LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH 
-# ENV CPLUS_INCLUDE_PATH=/usr/local/include:$CPLUS_INCLUDE_PATH
 
+# build compress_ms
 RUN cd /code/compress_ms \
     && cmake -B build . -DCMAKE_BUILD_TYPE=Release -G Ninja \
     && cmake --build build --config Release \
     && cmake --install build --config Release \
     && mkdir /workspace
 
+# set workspace and default entrypoint
 WORKDIR /workspace
 ENTRYPOINT [ "compress_ms" ]
 

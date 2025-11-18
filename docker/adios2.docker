@@ -1,5 +1,6 @@
 FROM ${USER}/ubuntu-base
 
+# build zfp
 RUN mkdir /code \
     && cd /code \
     && git clone https://github.com/LLNL/zfp \
@@ -8,6 +9,7 @@ RUN mkdir /code \
     && cmake --build build --config Release \
     && cmake --install build --config Release
 
+# build mgard
 RUN cd /code \
     &&git clone https://github.com/CODARcode/mgard \
     && cd mgard/build_scripts \
@@ -15,11 +17,7 @@ RUN cd /code \
     && cd .. \
     && ./build_scripts/build_mgard_openmp_cpu.sh 12
 
-# temp dependency matching
-RUN apt-get update \
-    && apt-get install -y \
-        libbz2-dev
-
+# build adios2
 RUN cd /code \
     && git clone https://github.com/ornladios/ADIOS2 \
     && cd ADIOS2 \

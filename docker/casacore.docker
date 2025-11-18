@@ -1,5 +1,6 @@
 FROM ${USER}/adios2
 
+# build custom cfitsio (interferes with zfp)
 RUN cd /code \
     && git clone https://github.com/rtobar/cfitsio -b stream_funcs_renamed \
     && cd cfitsio \
@@ -8,19 +9,14 @@ RUN cd /code \
     && cmake --install build \
     && ldconfig
 
+# download and unpack casacore measures tables
 RUN wget -nv -O /WSRT_Measures.ztar https://www.astron.nl/iers/WSRT_Measures.ztar \
     && mkdir -p /usr/local/share/casacore/data \
     && cd /usr/local/share/casacore/data \
     && tar xfz /WSRT_Measures.ztar \
     && rm /WSRT_Measures.ztar
 
-#temp dependency matching
-RUN apt-get update \
-    && apt-get install -y \
-        libreadline-dev \
-        python3-dev \
-        libboost-all-dev
-
+# set up python environment and get custom casacore (fixes issues with ADIOS2 Storage manager)
 RUN cd /code \
     && python3 -m venv venv \
     && . venv/bin/activate \
@@ -29,25 +25,7 @@ RUN cd /code \
     && git clone https://github.com/rtobar/casacore.git \
     && cd casacore && git checkout adios2stman-rows-readwrite
 
-# RUN cd /code \
-#     && . venv/bin/activate \
-#     && git clone https://github.com/boostorg/boost.git -b boost-1.89.0 boost_1_89_0 --depth 1 \
-#     && cd boost_1_89_0 \
-#     && git submodule update --depth 1 -q --init tools/boostdep \
-#     && git submodule update --depth 1 -q --init libs/filesystem \
-#     # && git submodule update --depth 1 -q --init libs/unit_test_framework \
-#     && git submodule update --depth 1 -q --init libs/system \
-#     && git submodule update --depth 1 -q --init libs/program_options \
-#     && python tools/boostdep/depinst/depinst.py -X test -g "--depth 1" filesystem \
-#     # && python tools/boostdep/depinst/depinst.py -X test -g "--depth 1" unit_test_framework \
-#     && python tools/boostdep/depinst/depinst.py -X test -g "--depth 1" system \
-#     && python tools/boostdep/depinst/depinst.py -X test -g "--depth 1" program_options \
-#     && git submodule update --depth 1 -q --init libs/python \
-#     && python tools/boostdep/depinst/depinst.py -X test -g "--depth 1" python \
-#     && ./bootstrap.sh --prefix=/usr/local \
-#     && ./b2 \
-#     && ./b2 install
-
+# build casacore
 RUN . /code/venv/bin/activate \
     && cd /code/casacore \
     && cmake -B build -G Ninja . \
@@ -68,6 +46,7 @@ RUN . /code/venv/bin/activate \
     && cmake --install build \
     && ldconfig
 
+# build python-casacore
 RUN cd /code \
     && . venv/bin/activate \
     && pip install --no-binary python-casacore python-casacore \
