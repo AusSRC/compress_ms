@@ -14,7 +14,7 @@ Copy a measurement set and replace a column's storage manager with the Adios2 St
 - zfp
 - MGARD
 
-## Build
+## Build (non-docker)
 from within compress_ms
 ```
 mkdir build
@@ -22,6 +22,11 @@ cd build
 cmake ..
 make
 make install
+```
+
+## Build (docker)
+```
+./build_docker.sh all
 ```
 
 ## Usage
@@ -41,3 +46,15 @@ Usage: compress_ms <input_ms> <output_ms> <column_name> [options]
 - `input_ms=<input filename>` -- The name of the input file
 - `output_ms=<output filename>` -- The desired name of the output file
 - `column_name=<column name>` -- The name of the column to apply the adios2 storage manager (and the selected compression operator) to.
+
+## Usage (docker)
+```
+docker run --rm --mount type=bind,src=<local_workspace>,dst=</workspace> alxndrwllmsn/compress_ms compress_ms <input_ms> <output_ms> <column_name> [options]
+```
+
+## Usage (singularity)
+Assuming the container is built and pushed to dockerhub
+```
+singularity pull docker://alxndrwllmsn/compress_ms compress_ms.sif
+singularity exec --bind <local_workspace>:/workspace compress_ms.sif compress_ms <input_ms> <output_ms> <column_name> [options]
+```

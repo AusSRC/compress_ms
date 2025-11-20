@@ -1,4 +1,4 @@
-FROM ${USER}/ubuntu-base
+FROM alxndrwllmsn/ubuntu-base
 
 # build zfp
 RUN mkdir /code \

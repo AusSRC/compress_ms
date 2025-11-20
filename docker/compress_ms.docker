@@ -1,4 +1,4 @@
-FROM ${USER}/casacore
+FROM alxndrwllmsn/casacore
 
 # copy source code
 COPY  ./ /code/compress_ms/

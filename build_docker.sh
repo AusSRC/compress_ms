@@ -9,19 +9,19 @@ function usage() {
 }
 
 function build_base() {
-    docker build -f docker/ubuntu-base.docker --tag ${USER}/ubuntu-base .
+    docker build -f docker/ubuntu-base.docker --tag alxndrwllmsn/ubuntu-base .
 }
 
 function build_adios() {
-    docker build -f docker/adios2.docker --tag ${USER}/adios2 . 
+    docker build -f docker/adios2.docker --tag alxndrwllmsn/adios2 . 
 }
 
 function build_casacore() {
-    docker build -f docker/casacore.docker --tag ${USER}/casacore .
+    docker build -f docker/casacore.docker --tag alxndrwllmsn/casacore .
 }
 
 function build_compress_ms() {
-    docker build -f docker/compress_ms.docker --tag ${USER}/compress_ms .
+    docker build -f docker/compress_ms.docker --tag alxndrwllmsn/compress_ms .
 }
 
 if [[ $1 = "base" ]]

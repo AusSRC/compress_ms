@@ -1,4 +1,4 @@
-FROM ${USER}/adios2
+FROM alxndrwllmsn/adios2
 
 # build custom cfitsio (interferes with zfp)
 RUN cd /code \
