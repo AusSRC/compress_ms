@@ -79,8 +79,8 @@ int main (int argc, const char* argv[])
     std::string operation = vm["compressor"].as<std::string>();
     std::string errBound = std::to_string(vm["error_bound"].as<float>());
     std::string errBoundType = vm["error_bound_type"].as<std::string>();
-    int stepsize;
-    int nsteps;
+    int stepsize = -1;
+    int nsteps = -1;
     std::string configFile;
 
     if (vm.count("step_size") and vm.count("num_steps"))
@@ -192,7 +192,7 @@ int main (int argc, const char* argv[])
                 {
                     ArrayColumn<float> dataCol(msIn, colName);
                     nrows = dataCol.nrow();
-                    if (stepsize)
+                    if (stepsize > 0)
                     {
                         nsteps = nrows/stepsize;
                         laststepsize = nrows - nsteps*stepsize;
@@ -224,7 +224,7 @@ int main (int argc, const char* argv[])
                 {
                     ArrayColumn<Complex> dataCol(msIn, colName);
                     nrows = dataCol.nrow();
-                    if (stepsize)
+                    if (stepsize > 0)
                     {
                         nsteps = nrows/stepsize;
                         laststepsize = nrows - nsteps*stepsize;
