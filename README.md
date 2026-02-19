@@ -47,6 +47,86 @@ Usage: compress_ms <input_ms> <output_ms> <column_name> [options]
 - `output_ms=<output filename>` -- The desired name of the output file
 - `column_name=<column name>` -- The name of the column to apply the adios2 storage manager (and the selected compression operator) to.
 
+### Command Line Example:
+
+Running purely from the command line:
+```Bash
+compress_ms input_data.ms output_data.ms DATA -o mgard -e 0.01 -t ABS -s 10
+```
+
+The above command will open `input_data.ms` compress the `DATA` column and write the output to `output_data.ms`. 
+
+It will use the **MGARD** operator (given by option `-o`), to compress the data with an **Absolute** error bound type (given by option `-t`) of **0.01** (given by option `-e`), and it will split the data into steps of **10** (`-s`, if you use `-n` you can specify the number of steps instead). The error bound provided will be in whatever units the data is stored in. Use `showtableinfo in=input_data.ms` (from `casacore`) to determine the units.
+
+### Config Example:
+
+Alternatively, you can set the above parameters in a config file, passed with `-c`:
+```bash
+compress_ms -c config.txt
+```
+
+An example of the config is:
+```bash
+#config.txt
+input_ms=input_data.ms
+output_ms=output_data.ms
+column_name=DATA
+compressor=mgard
+error_bound=0.01
+error_bound_type=ABS
+step_size=10
+```
+
+This will run the compressor in an identical manner to the previous example.
+
+### ADIOS2 Config Example (MGARD):
+
+An advanced alternative option is to pass parameters directly to the ADIOS2 storage manager. This is useful if you want to use a custom compressor or access advanced compressor parameters:
+```bash
+compress_ms input_data.ms output_data.ms DATA --ADIOS2_config adios_config.yaml -s 10
+```
+
+Using this file:
+```bash
+#adios_config.yaml
+- IO: "Adios2StMan"
+  Engine:
+    Type: "BP5"
+  Variables:
+    - Variable: "DATA"
+      Operations:
+        - Type: mgard
+          tolerance: 0.01
+          lossless: Huffman_Zstd
+          mode: ABS
+          s: inf
+```
+
+Ensuring that the `Variable` name is identical to the column name (`DATA` in this case).
+
+The compression parameters here are the same as above (`tolerance=error_bound`, `mode=error_bound_type`), but exposes some more advanced compressor parameters such as the compressor to use for the final lossless step (`lossless`, specific to MGARD) and the error norm (`s`, i.e. how to calculate the error).
+
+### Alternative ADIOS Config Example (ZFP):
+
+Alternatively, if you want to use `zfp` to compress, you could change the `type` parameter:
+```bash
+#adios_config.yaml
+- IO: "Adios2StMan"
+  Engine:
+    Type: "BP5"
+  Variables:
+  - Variable: "DATA"
+      Operations:
+        - Type: zfp
+          accuracy: 0.01
+```
+
+The adios2 config can also be used with the compress_ms config file by adding:
+```bash
+#config.txt
+ADIOS2_config=adios_config.yaml
+```
+
 ## Usage (docker)
 ```
 docker run --rm --mount type=bind,src=<local_workspace>,dst=</workspace> alxndrwllmsn/compress_ms compress_ms <input_ms> <output_ms> <column_name> [options]
