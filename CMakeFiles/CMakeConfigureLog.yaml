@@ -1,0 +1,1891 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake:205 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Linux - 5.15.0-1084-aws - x86_64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: /usr/bin/cc 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+      
+      The C compiler identification is GNU, found in:
+        /mnt/compress_ms/CMakeFiles/3.31.9/CompilerIdC/a.out
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: /usr/bin/c++ 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+      
+      The CXX compiler identification is GNU, found in:
+        /mnt/compress_ms/CMakeFiles/3.31.9/CompilerIdCXX/a.out
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-JyKQo4"
+      binary: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-JyKQo4"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-JyKQo4'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_5ceff/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_5ceff.dir/build.make CMakeFiles/cmTC_5ceff.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-JyKQo4'
+        Building C object CMakeFiles/cmTC_5ceff.dir/CMakeCCompilerABI.c.o
+        /usr/bin/cc   -v -o CMakeFiles/cmTC_5ceff.dir/CMakeCCompilerABI.c.o -c /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CMakeCCompilerABI.c
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/cc
+        OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-linux-gnu
+        Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~22.04.2' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-2Y5pKs/gcc-11-11.4.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-2Y5pKs/gcc-11-11.4.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04.2) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_5ceff.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_5ceff.dir/'
+         /usr/lib/gcc/x86_64-linux-gnu/11/cc1 -quiet -v -imultiarch x86_64-linux-gnu /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_5ceff.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccaRTItg.s
+        GNU C17 (Ubuntu 11.4.0-1ubuntu1~22.04.2) version 11.4.0 (x86_64-linux-gnu)
+        	compiled by GNU C version 11.4.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/include-fixed"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /usr/lib/gcc/x86_64-linux-gnu/11/include
+         /usr/local/include
+         /usr/include/x86_64-linux-gnu
+         /usr/include
+        End of search list.
+        GNU C17 (Ubuntu 11.4.0-1ubuntu1~22.04.2) version 11.4.0 (x86_64-linux-gnu)
+        	compiled by GNU C version 11.4.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        Compiler executable checksum: 4011c2103cba78949d7e02d0f0047a3d
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_5ceff.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_5ceff.dir/'
+         as -v --64 -o CMakeFiles/cmTC_5ceff.dir/CMakeCCompilerABI.c.o /tmp/ccaRTItg.s
+        GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38
+        COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+        LIBRARY_PATH=/opt/casacore/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/opt/casacore/lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_5ceff.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_5ceff.dir/CMakeCCompilerABI.c.'
+        Linking C executable cmTC_5ceff
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5ceff.dir/link.txt --verbose=1
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/cc
+        COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper
+        OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-linux-gnu
+        Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~22.04.2' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-2Y5pKs/gcc-11-11.4.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-2Y5pKs/gcc-11-11.4.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04.2) 
+        COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+        LIBRARY_PATH=/opt/casacore/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/opt/casacore/lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_5ceff' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_5ceff.'
+         /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccc6YD0z.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_5ceff /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/opt/casacore/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/opt/casacore/lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. -v CMakeFiles/cmTC_5ceff.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o
+        collect2 version 11.4.0
+        /usr/bin/ld -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccc6YD0z.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_5ceff /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/opt/casacore/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/opt/casacore/lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. -v CMakeFiles/cmTC_5ceff.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o
+        GNU ld (GNU Binutils for Ubuntu) 2.38
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_5ceff' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_5ceff.'
+        /usr/bin/cc  -v -Wl,-v CMakeFiles/cmTC_5ceff.dir/CMakeCCompilerABI.c.o -o cmTC_5ceff
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-JyKQo4'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:182 (message)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed C implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/usr/lib/gcc/x86_64-linux-gnu/11/include]
+          add: [/usr/local/include]
+          add: [/usr/include/x86_64-linux-gnu]
+          add: [/usr/include]
+        end of search list found
+        collapse include dir [/usr/lib/gcc/x86_64-linux-gnu/11/include] ==> [/usr/lib/gcc/x86_64-linux-gnu/11/include]
+        collapse include dir [/usr/local/include] ==> [/usr/local/include]
+        collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+        collapse include dir [/usr/include] ==> [/usr/include]
+        implicit include dirs: [/usr/lib/gcc/x86_64-linux-gnu/11/include;/usr/local/include;/usr/include/x86_64-linux-gnu;/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?))("|,| |$)]
+        ignore line: [Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-JyKQo4']
+        ignore line: []
+        ignore line: [Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_5ceff/fast]
+        ignore line: [/opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_5ceff.dir/build.make CMakeFiles/cmTC_5ceff.dir/build]
+        ignore line: [gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-JyKQo4']
+        ignore line: [Building C object CMakeFiles/cmTC_5ceff.dir/CMakeCCompilerABI.c.o]
+        ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_5ceff.dir/CMakeCCompilerABI.c.o -c /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CMakeCCompilerABI.c]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/cc]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-linux-gnu]
+        ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~22.04.2' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-2Y5pKs/gcc-11-11.4.0/debian/tmp-nvptx/usr amdgcn-amdhsa=/build/gcc-11-2Y5pKs/gcc-11-11.4.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04.2) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_5ceff.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_5ceff.dir/']
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/11/cc1 -quiet -v -imultiarch x86_64-linux-gnu /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_5ceff.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccaRTItg.s]
+        ignore line: [GNU C17 (Ubuntu 11.4.0-1ubuntu1~22.04.2) version 11.4.0 (x86_64-linux-gnu)]
+        ignore line: [	compiled by GNU C version 11.4.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/include-fixed"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/11/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/include/x86_64-linux-gnu]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [GNU C17 (Ubuntu 11.4.0-1ubuntu1~22.04.2) version 11.4.0 (x86_64-linux-gnu)]
+        ignore line: [	compiled by GNU C version 11.4.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [Compiler executable checksum: 4011c2103cba78949d7e02d0f0047a3d]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_5ceff.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_5ceff.dir/']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_5ceff.dir/CMakeCCompilerABI.c.o /tmp/ccaRTItg.s]
+        ignore line: [GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/opt/casacore/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/opt/casacore/lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_5ceff.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_5ceff.dir/CMakeCCompilerABI.c.']
+        ignore line: [Linking C executable cmTC_5ceff]
+        ignore line: [/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5ceff.dir/link.txt --verbose=1]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/cc]
+        ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-linux-gnu]
+        ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~22.04.2' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-2Y5pKs/gcc-11-11.4.0/debian/tmp-nvptx/usr amdgcn-amdhsa=/build/gcc-11-2Y5pKs/gcc-11-11.4.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04.2) ]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/opt/casacore/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/opt/casacore/lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_5ceff' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_5ceff.']
+        link line: [ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccc6YD0z.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_5ceff /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/opt/casacore/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/opt/casacore/lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. -v CMakeFiles/cmTC_5ceff.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/11/collect2] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccc6YD0z.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [--build-id] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [--as-needed] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-znow] ==> ignore
+          arg [-zrelro] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_5ceff] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o]
+          arg [-L/opt/casacore/lib/../lib] ==> dir [/opt/casacore/lib/../lib]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/11] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib]
+          arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+          arg [-L/lib/../lib] ==> dir [/lib/../lib]
+          arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+          arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+          arg [-L/opt/casacore/lib] ==> dir [/opt/casacore/lib]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/11/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../..]
+          arg [-v] ==> ignore
+          arg [CMakeFiles/cmTC_5ceff.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [-lgcc] ==> lib [gcc]
+          arg [--push-state] ==> ignore
+          arg [--as-needed] ==> ignore
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [--pop-state] ==> ignore
+          arg [-lc] ==> lib [c]
+          arg [-lgcc] ==> lib [gcc]
+          arg [--push-state] ==> ignore
+          arg [--as-needed] ==> ignore
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [--pop-state] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
+        ignore line: [collect2 version 11.4.0]
+        ignore line: [/usr/bin/ld -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccc6YD0z.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_5ceff /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/opt/casacore/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/opt/casacore/lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. -v CMakeFiles/cmTC_5ceff.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
+        linker tool for 'C': /usr/bin/ld
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o] ==> [/usr/lib/x86_64-linux-gnu/Scrt1.o]
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o] ==> [/usr/lib/x86_64-linux-gnu/crti.o]
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o] ==> [/usr/lib/x86_64-linux-gnu/crtn.o]
+        collapse library dir [/opt/casacore/lib/../lib] ==> [/opt/casacore/lib]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11] ==> [/usr/lib/gcc/x86_64-linux-gnu/11]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib] ==> [/usr/lib]
+        collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+        collapse library dir [/lib/../lib] ==> [/lib]
+        collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+        collapse library dir [/opt/casacore/lib] ==> [/opt/casacore/lib]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../..] ==> [/usr/lib]
+        implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+        implicit objs: [/usr/lib/x86_64-linux-gnu/Scrt1.o;/usr/lib/x86_64-linux-gnu/crti.o;/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o;/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o;/usr/lib/x86_64-linux-gnu/crtn.o]
+        implicit dirs: [/opt/casacore/lib;/usr/lib/gcc/x86_64-linux-gnu/11;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the C compiler's linker: "/usr/bin/ld" "-v"
+      GNU ld (GNU Binutils for Ubuntu) 2.38
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-7b43MP"
+      binary: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-7b43MP"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-7b43MP'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_4805c/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_4805c.dir/build.make CMakeFiles/cmTC_4805c.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-7b43MP'
+        Building CXX object CMakeFiles/cmTC_4805c.dir/CMakeCXXCompilerABI.cpp.o
+        /usr/bin/c++   -v -o CMakeFiles/cmTC_4805c.dir/CMakeCXXCompilerABI.cpp.o -c /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/c++
+        OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-linux-gnu
+        Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~22.04.2' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-2Y5pKs/gcc-11-11.4.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-2Y5pKs/gcc-11-11.4.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04.2) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_4805c.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_4805c.dir/'
+         /usr/lib/gcc/x86_64-linux-gnu/11/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_4805c.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccij9RSD.s
+        GNU C++17 (Ubuntu 11.4.0-1ubuntu1~22.04.2) version 11.4.0 (x86_64-linux-gnu)
+        	compiled by GNU C version 11.4.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring duplicate directory "/usr/include/x86_64-linux-gnu/c++/11"
+        ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/include-fixed"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /usr/include/c++/11
+         /usr/include/x86_64-linux-gnu/c++/11
+         /usr/include/c++/11/backward
+         /usr/lib/gcc/x86_64-linux-gnu/11/include
+         /usr/local/include
+         /usr/include/x86_64-linux-gnu
+         /usr/include
+        End of search list.
+        GNU C++17 (Ubuntu 11.4.0-1ubuntu1~22.04.2) version 11.4.0 (x86_64-linux-gnu)
+        	compiled by GNU C version 11.4.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        Compiler executable checksum: 6c87588fc345655b93b8c25f48f88886
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_4805c.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_4805c.dir/'
+         as -v --64 -o CMakeFiles/cmTC_4805c.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccij9RSD.s
+        GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38
+        COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+        LIBRARY_PATH=/opt/casacore/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/opt/casacore/lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_4805c.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_4805c.dir/CMakeCXXCompilerABI.cpp.'
+        Linking CXX executable cmTC_4805c
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4805c.dir/link.txt --verbose=1
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/c++
+        COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper
+        OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-linux-gnu
+        Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~22.04.2' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-2Y5pKs/gcc-11-11.4.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-2Y5pKs/gcc-11-11.4.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04.2) 
+        COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+        LIBRARY_PATH=/opt/casacore/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/opt/casacore/lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_4805c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_4805c.'
+         /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/cc7tHgJE.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_4805c /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/opt/casacore/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/opt/casacore/lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. -v CMakeFiles/cmTC_4805c.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o
+        collect2 version 11.4.0
+        /usr/bin/ld -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/cc7tHgJE.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_4805c /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/opt/casacore/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/opt/casacore/lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. -v CMakeFiles/cmTC_4805c.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o
+        GNU ld (GNU Binutils for Ubuntu) 2.38
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_4805c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_4805c.'
+        /usr/bin/c++  -v -Wl,-v CMakeFiles/cmTC_4805c.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_4805c
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-7b43MP'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:182 (message)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/usr/include/c++/11]
+          add: [/usr/include/x86_64-linux-gnu/c++/11]
+          add: [/usr/include/c++/11/backward]
+          add: [/usr/lib/gcc/x86_64-linux-gnu/11/include]
+          add: [/usr/local/include]
+          add: [/usr/include/x86_64-linux-gnu]
+          add: [/usr/include]
+        end of search list found
+        collapse include dir [/usr/include/c++/11] ==> [/usr/include/c++/11]
+        collapse include dir [/usr/include/x86_64-linux-gnu/c++/11] ==> [/usr/include/x86_64-linux-gnu/c++/11]
+        collapse include dir [/usr/include/c++/11/backward] ==> [/usr/include/c++/11/backward]
+        collapse include dir [/usr/lib/gcc/x86_64-linux-gnu/11/include] ==> [/usr/lib/gcc/x86_64-linux-gnu/11/include]
+        collapse include dir [/usr/local/include] ==> [/usr/local/include]
+        collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+        collapse include dir [/usr/include] ==> [/usr/include]
+        implicit include dirs: [/usr/include/c++/11;/usr/include/x86_64-linux-gnu/c++/11;/usr/include/c++/11/backward;/usr/lib/gcc/x86_64-linux-gnu/11/include;/usr/local/include;/usr/include/x86_64-linux-gnu;/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?))("|,| |$)]
+        ignore line: [Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-7b43MP']
+        ignore line: []
+        ignore line: [Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_4805c/fast]
+        ignore line: [/opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_4805c.dir/build.make CMakeFiles/cmTC_4805c.dir/build]
+        ignore line: [gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-7b43MP']
+        ignore line: [Building CXX object CMakeFiles/cmTC_4805c.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/usr/bin/c++   -v -o CMakeFiles/cmTC_4805c.dir/CMakeCXXCompilerABI.cpp.o -c /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/c++]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-linux-gnu]
+        ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~22.04.2' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-2Y5pKs/gcc-11-11.4.0/debian/tmp-nvptx/usr amdgcn-amdhsa=/build/gcc-11-2Y5pKs/gcc-11-11.4.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04.2) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_4805c.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_4805c.dir/']
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/11/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_4805c.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccij9RSD.s]
+        ignore line: [GNU C++17 (Ubuntu 11.4.0-1ubuntu1~22.04.2) version 11.4.0 (x86_64-linux-gnu)]
+        ignore line: [	compiled by GNU C version 11.4.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring duplicate directory "/usr/include/x86_64-linux-gnu/c++/11"]
+        ignore line: [ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/include-fixed"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /usr/include/c++/11]
+        ignore line: [ /usr/include/x86_64-linux-gnu/c++/11]
+        ignore line: [ /usr/include/c++/11/backward]
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/11/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/include/x86_64-linux-gnu]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [GNU C++17 (Ubuntu 11.4.0-1ubuntu1~22.04.2) version 11.4.0 (x86_64-linux-gnu)]
+        ignore line: [	compiled by GNU C version 11.4.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [Compiler executable checksum: 6c87588fc345655b93b8c25f48f88886]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_4805c.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_4805c.dir/']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_4805c.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccij9RSD.s]
+        ignore line: [GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/opt/casacore/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/opt/casacore/lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_4805c.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_4805c.dir/CMakeCXXCompilerABI.cpp.']
+        ignore line: [Linking CXX executable cmTC_4805c]
+        ignore line: [/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4805c.dir/link.txt --verbose=1]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/c++]
+        ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-linux-gnu]
+        ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~22.04.2' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-2Y5pKs/gcc-11-11.4.0/debian/tmp-nvptx/usr amdgcn-amdhsa=/build/gcc-11-2Y5pKs/gcc-11-11.4.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04.2) ]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/opt/casacore/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/opt/casacore/lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_4805c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_4805c.']
+        link line: [ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/cc7tHgJE.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_4805c /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/opt/casacore/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/opt/casacore/lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. -v CMakeFiles/cmTC_4805c.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/11/collect2] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/cc7tHgJE.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [--build-id] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [--as-needed] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-znow] ==> ignore
+          arg [-zrelro] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_4805c] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o]
+          arg [-L/opt/casacore/lib/../lib] ==> dir [/opt/casacore/lib/../lib]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/11] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib]
+          arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+          arg [-L/lib/../lib] ==> dir [/lib/../lib]
+          arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+          arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+          arg [-L/opt/casacore/lib] ==> dir [/opt/casacore/lib]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/11/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../..]
+          arg [-v] ==> ignore
+          arg [CMakeFiles/cmTC_4805c.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [-lstdc++] ==> lib [stdc++]
+          arg [-lm] ==> lib [m]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lc] ==> lib [c]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
+        ignore line: [collect2 version 11.4.0]
+        ignore line: [/usr/bin/ld -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/cc7tHgJE.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_4805c /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/opt/casacore/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/opt/casacore/lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. -v CMakeFiles/cmTC_4805c.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
+        linker tool for 'CXX': /usr/bin/ld
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o] ==> [/usr/lib/x86_64-linux-gnu/Scrt1.o]
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o] ==> [/usr/lib/x86_64-linux-gnu/crti.o]
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o] ==> [/usr/lib/x86_64-linux-gnu/crtn.o]
+        collapse library dir [/opt/casacore/lib/../lib] ==> [/opt/casacore/lib]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11] ==> [/usr/lib/gcc/x86_64-linux-gnu/11]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib] ==> [/usr/lib]
+        collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+        collapse library dir [/lib/../lib] ==> [/lib]
+        collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+        collapse library dir [/opt/casacore/lib] ==> [/opt/casacore/lib]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../..] ==> [/usr/lib]
+        implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+        implicit objs: [/usr/lib/x86_64-linux-gnu/Scrt1.o;/usr/lib/x86_64-linux-gnu/crti.o;/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o;/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o;/usr/lib/x86_64-linux-gnu/crtn.o]
+        implicit dirs: [/opt/casacore/lib;/usr/lib/gcc/x86_64-linux-gnu/11;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the CXX compiler's linker: "/usr/bin/ld" "-v"
+      GNU ld (GNU Binutils for Ubuntu) 2.38
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindBLAS.cmake:379 (check_function_exists)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindBLAS.cmake:423 (check_blas_libraries)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindLAPACK.cmake:247 (find_package)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindLAPACK.cmake:283 (_lapack_find_dependency)"
+      - "cmake/FindCasacore.cmake:142 (find_package)"
+      - "cmake/FindCasacore.cmake:247 (casacore_find_package)"
+      - "CMakeLists.txt:7 (find_package)"
+    checks:
+      - "Looking for sgemm_"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-kU20GZ"
+      binary: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-kU20GZ"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "BLAS_WORKS"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-kU20GZ'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_8b7b6/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_8b7b6.dir/build.make CMakeFiles/cmTC_8b7b6.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-kU20GZ'
+        Building C object CMakeFiles/cmTC_8b7b6.dir/CheckFunctionExists.c.o
+        /usr/bin/cc   -DCHECK_FUNCTION_EXISTS=sgemm_ -o CMakeFiles/cmTC_8b7b6.dir/CheckFunctionExists.c.o -c /mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-kU20GZ/CheckFunctionExists.c
+        Linking C executable cmTC_8b7b6
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8b7b6.dir/link.txt --verbose=1
+        /usr/bin/ld: CMakeFiles/cmTC_8b7b6.dir/CheckFunctionExists.c.o: in function `main':
+        CheckFunctionExists.c:(.text+0x14): undefined reference to `sgemm_'
+        collect2: error: ld returned 1 exit status
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=sgemm_ CMakeFiles/cmTC_8b7b6.dir/CheckFunctionExists.c.o -o cmTC_8b7b6
+        gmake[1]: *** [CMakeFiles/cmTC_8b7b6.dir/build.make:102: cmTC_8b7b6] Error 1
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-kU20GZ'
+        gmake: *** [Makefile:134: cmTC_8b7b6/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CheckCSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindBLAS.cmake:475 (find_package)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindLAPACK.cmake:247 (find_package)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindLAPACK.cmake:283 (_lapack_find_dependency)"
+      - "cmake/FindCasacore.cmake:142 (find_package)"
+      - "cmake/FindCasacore.cmake:247 (casacore_find_package)"
+      - "CMakeLists.txt:7 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-hrSSkO"
+      binary: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-hrSSkO"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-hrSSkO'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_05f32/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_05f32.dir/build.make CMakeFiles/cmTC_05f32.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-hrSSkO'
+        Building C object CMakeFiles/cmTC_05f32.dir/src.c.o
+        /usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_05f32.dir/src.c.o -c /mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-hrSSkO/src.c
+        Linking C executable cmTC_05f32
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_05f32.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_05f32.dir/src.c.o -o cmTC_05f32
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-hrSSkO'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindBLAS.cmake:379 (check_function_exists)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindBLAS.cmake:764 (check_blas_libraries)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindLAPACK.cmake:247 (find_package)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindLAPACK.cmake:283 (_lapack_find_dependency)"
+      - "cmake/FindCasacore.cmake:142 (find_package)"
+      - "cmake/FindCasacore.cmake:247 (casacore_find_package)"
+      - "CMakeLists.txt:7 (find_package)"
+    checks:
+      - "Looking for sgemm_"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-Zi7Xg4"
+      binary: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-Zi7Xg4"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "BLAS_openblas_WORKS"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-Zi7Xg4'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_dcb74/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_dcb74.dir/build.make CMakeFiles/cmTC_dcb74.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-Zi7Xg4'
+        Building C object CMakeFiles/cmTC_dcb74.dir/CheckFunctionExists.c.o
+        /usr/bin/cc   -DCHECK_FUNCTION_EXISTS=sgemm_ -o CMakeFiles/cmTC_dcb74.dir/CheckFunctionExists.c.o -c /mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-Zi7Xg4/CheckFunctionExists.c
+        Linking C executable cmTC_dcb74
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dcb74.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=sgemm_ CMakeFiles/cmTC_dcb74.dir/CheckFunctionExists.c.o -o cmTC_dcb74  -Wl,-rpath,/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib /opt/spack/var/spack/environments/spack-env/.spack-env/view/lib/libopenblas.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-Zi7Xg4'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindLAPACK.cmake:220 (check_function_exists)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindLAPACK.cmake:399 (check_lapack_libraries)"
+      - "cmake/FindCasacore.cmake:142 (find_package)"
+      - "cmake/FindCasacore.cmake:247 (casacore_find_package)"
+      - "CMakeLists.txt:7 (find_package)"
+    checks:
+      - "Looking for cheev_"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-9xjGAY"
+      binary: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-9xjGAY"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "LAPACK_WORKS"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-9xjGAY'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_64309/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_64309.dir/build.make CMakeFiles/cmTC_64309.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-9xjGAY'
+        Building C object CMakeFiles/cmTC_64309.dir/CheckFunctionExists.c.o
+        /usr/bin/cc   -DCHECK_FUNCTION_EXISTS=cheev_ -o CMakeFiles/cmTC_64309.dir/CheckFunctionExists.c.o -c /mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-9xjGAY/CheckFunctionExists.c
+        Linking C executable cmTC_64309
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_64309.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=cheev_ CMakeFiles/cmTC_64309.dir/CheckFunctionExists.c.o -o cmTC_64309  -Wl,-rpath,/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib /opt/spack/var/spack/environments/spack-env/.spack-env/view/lib/libopenblas.so -lm -ldl
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-9xjGAY'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1283 (try_compile)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1327 (_MPI_try_staged_settings)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1650 (_MPI_check_lang_works)"
+      - "/opt/spack/var/spack/environments/spack-env/.spack-env/view/cmake/hdf5-config.cmake:116 (find_package)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindHDF5.cmake:513 (find_package)"
+      - "cmake/FindCasacore.cmake:142 (find_package)"
+      - "cmake/FindCasacore.cmake:239 (casacore_find_package)"
+      - "CMakeLists.txt:7 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-uBoeMC"
+      binary: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-uBoeMC"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-uBoeMC'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_50f1b/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_50f1b.dir/build.make CMakeFiles/cmTC_50f1b.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-uBoeMC'
+        Building C object CMakeFiles/cmTC_50f1b.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/include -isystem /opt/spack/var/spack/environments/spack-env/.spack-env/view/include  -o CMakeFiles/cmTC_50f1b.dir/test_mpi.c.o -c /mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-uBoeMC/test_mpi.c
+        Linking C executable cmTC_50f1b
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_50f1b.dir/link.txt --verbose=1
+        /usr/bin/cc -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib -L/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -L/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -L/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib CMakeFiles/cmTC_50f1b.dir/test_mpi.c.o -o cmTC_50f1b  -Wl,-rpath,/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib /opt/spack/var/spack/environments/spack-env/.spack-env/view/lib/libmpi.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-uBoeMC'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1283 (try_compile)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1327 (_MPI_try_staged_settings)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1650 (_MPI_check_lang_works)"
+      - "/opt/spack/var/spack/environments/spack-env/.spack-env/view/cmake/hdf5-config.cmake:116 (find_package)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindHDF5.cmake:513 (find_package)"
+      - "cmake/FindCasacore.cmake:142 (find_package)"
+      - "cmake/FindCasacore.cmake:239 (casacore_find_package)"
+      - "CMakeLists.txt:7 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode normal"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-o9NGC1"
+      binary: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-o9NGC1"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-o9NGC1'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_e62dd/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_e62dd.dir/build.make CMakeFiles/cmTC_e62dd.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-o9NGC1'
+        Building CXX object CMakeFiles/cmTC_e62dd.dir/test_mpi.cpp.o
+        /usr/bin/c++  -isystem /opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/include -isystem /opt/spack/var/spack/environments/spack-env/.spack-env/view/include  -o CMakeFiles/cmTC_e62dd.dir/test_mpi.cpp.o -c /mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-o9NGC1/test_mpi.cpp
+        Linking CXX executable cmTC_e62dd
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e62dd.dir/link.txt --verbose=1
+        /usr/bin/c++ -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib -L/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -L/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -L/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib CMakeFiles/cmTC_e62dd.dir/test_mpi.cpp.o -o cmTC_e62dd  -Wl,-rpath,/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib /opt/spack/var/spack/environments/spack-env/.spack-env/view/lib/libmpi.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-o9NGC1'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1283 (try_compile)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1677 (_MPI_try_staged_settings)"
+      - "/opt/spack/var/spack/environments/spack-env/.spack-env/view/cmake/hdf5-config.cmake:116 (find_package)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindHDF5.cmake:513 (find_package)"
+      - "cmake/FindCasacore.cmake:142 (find_package)"
+      - "cmake/FindCasacore.cmake:239 (casacore_find_package)"
+      - "CMakeLists.txt:7 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode MPICXX"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-GazQu7"
+      binary: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-GazQu7"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_MPICXX"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-GazQu7'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_c537a/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_c537a.dir/build.make CMakeFiles/cmTC_c537a.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-GazQu7'
+        Building CXX object CMakeFiles/cmTC_c537a.dir/test_mpi.cpp.o
+        /usr/bin/c++  -isystem /opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/include -isystem /opt/spack/var/spack/environments/spack-env/.spack-env/view/include  -o CMakeFiles/cmTC_c537a.dir/test_mpi.cpp.o -c /mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-GazQu7/test_mpi.cpp
+        Linking CXX executable cmTC_c537a
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c537a.dir/link.txt --verbose=1
+        /usr/bin/c++ -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib -L/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -L/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -L/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib CMakeFiles/cmTC_c537a.dir/test_mpi.cpp.o -o cmTC_c537a  -Wl,-rpath,/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib /opt/spack/var/spack/environments/spack-env/.spack-env/view/lib/libmpi.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-GazQu7'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "cmake/FindCasacore.cmake:264 (try_compile)"
+      - "CMakeLists.txt:7 (find_package)"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp"
+      binary: "/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "_success"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_40021/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_40021.dir/build.make CMakeFiles/cmTC_40021.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp'
+        Building CXX object CMakeFiles/cmTC_40021.dir/casacore_version.cxx.o
+        /usr/bin/c++  -I/opt/casacore/include  -o CMakeFiles/cmTC_40021.dir/casacore_version.cxx.o -c /mnt/compress_ms/CMakeFiles/casacore_version/casacore_version.cxx
+        Linking CXX executable cmTC_40021
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_40021.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_40021.dir/casacore_version.cxx.o -o cmTC_40021  /opt/casacore/lib/libcasa_casa.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1283 (try_compile)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1327 (_MPI_try_staged_settings)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1650 (_MPI_check_lang_works)"
+      - "/opt/spack/var/spack/environments/spack-env/.spack-env/view/cmake/hdf5-config.cmake:116 (find_package)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindHDF5.cmake:513 (find_package)"
+      - "cmake/FindCasacore.cmake:142 (find_package)"
+      - "cmake/FindCasacore.cmake:239 (casacore_find_package)"
+      - "CMakeLists.txt:7 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-imhB0C"
+      binary: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-imhB0C"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-imhB0C'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_4ab32/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_4ab32.dir/build.make CMakeFiles/cmTC_4ab32.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-imhB0C'
+        Building C object CMakeFiles/cmTC_4ab32.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/include -isystem /opt/spack/var/spack/environments/spack-env/.spack-env/view/include  -o CMakeFiles/cmTC_4ab32.dir/test_mpi.c.o -c /mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-imhB0C/test_mpi.c
+        Linking C executable cmTC_4ab32
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4ab32.dir/link.txt --verbose=1
+        /usr/bin/cc -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib -L/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -L/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -L/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib CMakeFiles/cmTC_4ab32.dir/test_mpi.c.o -o cmTC_4ab32  -Wl,-rpath,/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib /opt/spack/var/spack/environments/spack-env/.spack-env/view/lib/libmpi.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-imhB0C'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1283 (try_compile)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1327 (_MPI_try_staged_settings)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1650 (_MPI_check_lang_works)"
+      - "/opt/spack/var/spack/environments/spack-env/.spack-env/view/cmake/hdf5-config.cmake:116 (find_package)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindHDF5.cmake:513 (find_package)"
+      - "cmake/FindCasacore.cmake:142 (find_package)"
+      - "cmake/FindCasacore.cmake:239 (casacore_find_package)"
+      - "CMakeLists.txt:7 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode normal"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-r6ul2C"
+      binary: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-r6ul2C"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-r6ul2C'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_61382/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_61382.dir/build.make CMakeFiles/cmTC_61382.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-r6ul2C'
+        Building CXX object CMakeFiles/cmTC_61382.dir/test_mpi.cpp.o
+        /usr/bin/c++  -isystem /opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/include -isystem /opt/spack/var/spack/environments/spack-env/.spack-env/view/include  -o CMakeFiles/cmTC_61382.dir/test_mpi.cpp.o -c /mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-r6ul2C/test_mpi.cpp
+        Linking CXX executable cmTC_61382
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_61382.dir/link.txt --verbose=1
+        /usr/bin/c++ -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib -L/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -L/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -L/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib CMakeFiles/cmTC_61382.dir/test_mpi.cpp.o -o cmTC_61382  -Wl,-rpath,/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib /opt/spack/var/spack/environments/spack-env/.spack-env/view/lib/libmpi.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-r6ul2C'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1283 (try_compile)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1677 (_MPI_try_staged_settings)"
+      - "/opt/spack/var/spack/environments/spack-env/.spack-env/view/cmake/hdf5-config.cmake:116 (find_package)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindHDF5.cmake:513 (find_package)"
+      - "cmake/FindCasacore.cmake:142 (find_package)"
+      - "cmake/FindCasacore.cmake:239 (casacore_find_package)"
+      - "CMakeLists.txt:7 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode MPICXX"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-rDkf5f"
+      binary: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-rDkf5f"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_MPICXX"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-rDkf5f'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_681c0/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_681c0.dir/build.make CMakeFiles/cmTC_681c0.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-rDkf5f'
+        Building CXX object CMakeFiles/cmTC_681c0.dir/test_mpi.cpp.o
+        /usr/bin/c++  -isystem /opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/include -isystem /opt/spack/var/spack/environments/spack-env/.spack-env/view/include  -o CMakeFiles/cmTC_681c0.dir/test_mpi.cpp.o -c /mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-rDkf5f/test_mpi.cpp
+        Linking CXX executable cmTC_681c0
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_681c0.dir/link.txt --verbose=1
+        /usr/bin/c++ -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib -L/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -L/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -L/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib CMakeFiles/cmTC_681c0.dir/test_mpi.cpp.o -o cmTC_681c0  -Wl,-rpath,/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib /opt/spack/var/spack/environments/spack-env/.spack-env/view/lib/libmpi.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-rDkf5f'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "cmake/FindCasacore.cmake:264 (try_compile)"
+      - "CMakeLists.txt:7 (find_package)"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp"
+      binary: "/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "_success"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_67e8a/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_67e8a.dir/build.make CMakeFiles/cmTC_67e8a.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp'
+        Building CXX object CMakeFiles/cmTC_67e8a.dir/casacore_version.cxx.o
+        /usr/bin/c++  -I/opt/casacore/include  -o CMakeFiles/cmTC_67e8a.dir/casacore_version.cxx.o -c /mnt/compress_ms/CMakeFiles/casacore_version/casacore_version.cxx
+        Linking CXX executable cmTC_67e8a
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_67e8a.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_67e8a.dir/casacore_version.cxx.o -o cmTC_67e8a  /opt/casacore/lib/libcasa_casa.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1283 (try_compile)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1327 (_MPI_try_staged_settings)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1650 (_MPI_check_lang_works)"
+      - "/opt/spack/var/spack/environments/spack-env/.spack-env/view/cmake/hdf5-config.cmake:116 (find_package)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindHDF5.cmake:513 (find_package)"
+      - "cmake/FindCasacore.cmake:142 (find_package)"
+      - "cmake/FindCasacore.cmake:239 (casacore_find_package)"
+      - "CMakeLists.txt:7 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-BmGQir"
+      binary: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-BmGQir"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-BmGQir'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_5047d/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_5047d.dir/build.make CMakeFiles/cmTC_5047d.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-BmGQir'
+        Building C object CMakeFiles/cmTC_5047d.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/include -isystem /opt/spack/var/spack/environments/spack-env/.spack-env/view/include  -o CMakeFiles/cmTC_5047d.dir/test_mpi.c.o -c /mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-BmGQir/test_mpi.c
+        Linking C executable cmTC_5047d
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5047d.dir/link.txt --verbose=1
+        /usr/bin/cc -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib -L/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -L/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -L/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib CMakeFiles/cmTC_5047d.dir/test_mpi.c.o -o cmTC_5047d  -Wl,-rpath,/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib /opt/spack/var/spack/environments/spack-env/.spack-env/view/lib/libmpi.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-BmGQir'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1283 (try_compile)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1327 (_MPI_try_staged_settings)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1650 (_MPI_check_lang_works)"
+      - "/opt/spack/var/spack/environments/spack-env/.spack-env/view/cmake/hdf5-config.cmake:116 (find_package)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindHDF5.cmake:513 (find_package)"
+      - "cmake/FindCasacore.cmake:142 (find_package)"
+      - "cmake/FindCasacore.cmake:239 (casacore_find_package)"
+      - "CMakeLists.txt:7 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode normal"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-SdUIEa"
+      binary: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-SdUIEa"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-SdUIEa'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_de24a/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_de24a.dir/build.make CMakeFiles/cmTC_de24a.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-SdUIEa'
+        Building CXX object CMakeFiles/cmTC_de24a.dir/test_mpi.cpp.o
+        /usr/bin/c++  -isystem /opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/include -isystem /opt/spack/var/spack/environments/spack-env/.spack-env/view/include  -o CMakeFiles/cmTC_de24a.dir/test_mpi.cpp.o -c /mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-SdUIEa/test_mpi.cpp
+        Linking CXX executable cmTC_de24a
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_de24a.dir/link.txt --verbose=1
+        /usr/bin/c++ -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib -L/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -L/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -L/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib CMakeFiles/cmTC_de24a.dir/test_mpi.cpp.o -o cmTC_de24a  -Wl,-rpath,/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib /opt/spack/var/spack/environments/spack-env/.spack-env/view/lib/libmpi.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-SdUIEa'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1283 (try_compile)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1677 (_MPI_try_staged_settings)"
+      - "/opt/spack/var/spack/environments/spack-env/.spack-env/view/cmake/hdf5-config.cmake:116 (find_package)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindHDF5.cmake:513 (find_package)"
+      - "cmake/FindCasacore.cmake:142 (find_package)"
+      - "cmake/FindCasacore.cmake:239 (casacore_find_package)"
+      - "CMakeLists.txt:7 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode MPICXX"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-qAb8ty"
+      binary: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-qAb8ty"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_MPICXX"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-qAb8ty'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_2d2fd/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_2d2fd.dir/build.make CMakeFiles/cmTC_2d2fd.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-qAb8ty'
+        Building CXX object CMakeFiles/cmTC_2d2fd.dir/test_mpi.cpp.o
+        /usr/bin/c++  -isystem /opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/include -isystem /opt/spack/var/spack/environments/spack-env/.spack-env/view/include  -o CMakeFiles/cmTC_2d2fd.dir/test_mpi.cpp.o -c /mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-qAb8ty/test_mpi.cpp
+        Linking CXX executable cmTC_2d2fd
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2d2fd.dir/link.txt --verbose=1
+        /usr/bin/c++ -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib -L/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -L/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -L/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib CMakeFiles/cmTC_2d2fd.dir/test_mpi.cpp.o -o cmTC_2d2fd  -Wl,-rpath,/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib /opt/spack/var/spack/environments/spack-env/.spack-env/view/lib/libmpi.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-qAb8ty'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "cmake/FindCasacore.cmake:264 (try_compile)"
+      - "CMakeLists.txt:7 (find_package)"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp"
+      binary: "/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "_success"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_93cd8/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_93cd8.dir/build.make CMakeFiles/cmTC_93cd8.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp'
+        Building CXX object CMakeFiles/cmTC_93cd8.dir/casacore_version.cxx.o
+        /usr/bin/c++  -I/opt/casacore/include  -o CMakeFiles/cmTC_93cd8.dir/casacore_version.cxx.o -c /mnt/compress_ms/CMakeFiles/casacore_version/casacore_version.cxx
+        Linking CXX executable cmTC_93cd8
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_93cd8.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_93cd8.dir/casacore_version.cxx.o -o cmTC_93cd8  /opt/casacore/lib/libcasa_casa.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1283 (try_compile)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1327 (_MPI_try_staged_settings)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1650 (_MPI_check_lang_works)"
+      - "/opt/spack/var/spack/environments/spack-env/.spack-env/view/cmake/hdf5-config.cmake:116 (find_package)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindHDF5.cmake:513 (find_package)"
+      - "cmake/FindCasacore.cmake:142 (find_package)"
+      - "cmake/FindCasacore.cmake:239 (casacore_find_package)"
+      - "CMakeLists.txt:7 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-XeA1S1"
+      binary: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-XeA1S1"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-XeA1S1'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_f2c77/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_f2c77.dir/build.make CMakeFiles/cmTC_f2c77.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-XeA1S1'
+        Building C object CMakeFiles/cmTC_f2c77.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/include -isystem /opt/spack/var/spack/environments/spack-env/.spack-env/view/include  -o CMakeFiles/cmTC_f2c77.dir/test_mpi.c.o -c /mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-XeA1S1/test_mpi.c
+        Linking C executable cmTC_f2c77
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f2c77.dir/link.txt --verbose=1
+        /usr/bin/cc -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib -L/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -L/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -L/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib CMakeFiles/cmTC_f2c77.dir/test_mpi.c.o -o cmTC_f2c77  -Wl,-rpath,/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib /opt/spack/var/spack/environments/spack-env/.spack-env/view/lib/libmpi.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-XeA1S1'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1283 (try_compile)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1327 (_MPI_try_staged_settings)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1650 (_MPI_check_lang_works)"
+      - "/opt/spack/var/spack/environments/spack-env/.spack-env/view/cmake/hdf5-config.cmake:116 (find_package)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindHDF5.cmake:513 (find_package)"
+      - "cmake/FindCasacore.cmake:142 (find_package)"
+      - "cmake/FindCasacore.cmake:239 (casacore_find_package)"
+      - "CMakeLists.txt:7 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode normal"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-8ed6lU"
+      binary: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-8ed6lU"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-8ed6lU'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_5ae10/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_5ae10.dir/build.make CMakeFiles/cmTC_5ae10.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-8ed6lU'
+        Building CXX object CMakeFiles/cmTC_5ae10.dir/test_mpi.cpp.o
+        /usr/bin/c++  -isystem /opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/include -isystem /opt/spack/var/spack/environments/spack-env/.spack-env/view/include  -o CMakeFiles/cmTC_5ae10.dir/test_mpi.cpp.o -c /mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-8ed6lU/test_mpi.cpp
+        Linking CXX executable cmTC_5ae10
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5ae10.dir/link.txt --verbose=1
+        /usr/bin/c++ -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib -L/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -L/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -L/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib CMakeFiles/cmTC_5ae10.dir/test_mpi.cpp.o -o cmTC_5ae10  -Wl,-rpath,/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib /opt/spack/var/spack/environments/spack-env/.spack-env/view/lib/libmpi.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-8ed6lU'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1283 (try_compile)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1677 (_MPI_try_staged_settings)"
+      - "/opt/spack/var/spack/environments/spack-env/.spack-env/view/cmake/hdf5-config.cmake:116 (find_package)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindHDF5.cmake:513 (find_package)"
+      - "cmake/FindCasacore.cmake:142 (find_package)"
+      - "cmake/FindCasacore.cmake:239 (casacore_find_package)"
+      - "CMakeLists.txt:7 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode MPICXX"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-Ou8D6D"
+      binary: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-Ou8D6D"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_MPICXX"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-Ou8D6D'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_4625e/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_4625e.dir/build.make CMakeFiles/cmTC_4625e.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-Ou8D6D'
+        Building CXX object CMakeFiles/cmTC_4625e.dir/test_mpi.cpp.o
+        /usr/bin/c++  -isystem /opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/include -isystem /opt/spack/var/spack/environments/spack-env/.spack-env/view/include  -o CMakeFiles/cmTC_4625e.dir/test_mpi.cpp.o -c /mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-Ou8D6D/test_mpi.cpp
+        Linking CXX executable cmTC_4625e
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4625e.dir/link.txt --verbose=1
+        /usr/bin/c++ -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib -L/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -L/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -L/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib CMakeFiles/cmTC_4625e.dir/test_mpi.cpp.o -o cmTC_4625e  -Wl,-rpath,/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib /opt/spack/var/spack/environments/spack-env/.spack-env/view/lib/libmpi.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-Ou8D6D'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "cmake/FindCasacore.cmake:264 (try_compile)"
+      - "CMakeLists.txt:7 (find_package)"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp"
+      binary: "/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "_success"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_6f198/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_6f198.dir/build.make CMakeFiles/cmTC_6f198.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp'
+        Building CXX object CMakeFiles/cmTC_6f198.dir/casacore_version.cxx.o
+        /usr/bin/c++  -I/opt/casacore/include  -o CMakeFiles/cmTC_6f198.dir/casacore_version.cxx.o -c /mnt/compress_ms/CMakeFiles/casacore_version/casacore_version.cxx
+        Linking CXX executable cmTC_6f198
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6f198.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_6f198.dir/casacore_version.cxx.o -o cmTC_6f198  /opt/casacore/lib/libcasa_casa.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1283 (try_compile)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1327 (_MPI_try_staged_settings)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1650 (_MPI_check_lang_works)"
+      - "/opt/spack/var/spack/environments/spack-env/.spack-env/view/cmake/hdf5-config.cmake:116 (find_package)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindHDF5.cmake:513 (find_package)"
+      - "cmake/FindCasacore.cmake:142 (find_package)"
+      - "cmake/FindCasacore.cmake:239 (casacore_find_package)"
+      - "CMakeLists.txt:7 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-JXXFFN"
+      binary: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-JXXFFN"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-JXXFFN'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_5551c/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_5551c.dir/build.make CMakeFiles/cmTC_5551c.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-JXXFFN'
+        Building C object CMakeFiles/cmTC_5551c.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/include -isystem /opt/spack/var/spack/environments/spack-env/.spack-env/view/include  -o CMakeFiles/cmTC_5551c.dir/test_mpi.c.o -c /mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-JXXFFN/test_mpi.c
+        Linking C executable cmTC_5551c
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5551c.dir/link.txt --verbose=1
+        /usr/bin/cc -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib -L/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -L/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -L/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib CMakeFiles/cmTC_5551c.dir/test_mpi.c.o -o cmTC_5551c  -Wl,-rpath,/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib /opt/spack/var/spack/environments/spack-env/.spack-env/view/lib/libmpi.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-JXXFFN'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1283 (try_compile)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1327 (_MPI_try_staged_settings)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1650 (_MPI_check_lang_works)"
+      - "/opt/spack/var/spack/environments/spack-env/.spack-env/view/cmake/hdf5-config.cmake:116 (find_package)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindHDF5.cmake:513 (find_package)"
+      - "cmake/FindCasacore.cmake:142 (find_package)"
+      - "cmake/FindCasacore.cmake:239 (casacore_find_package)"
+      - "CMakeLists.txt:7 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode normal"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-Nts7mq"
+      binary: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-Nts7mq"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-Nts7mq'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_079db/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_079db.dir/build.make CMakeFiles/cmTC_079db.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-Nts7mq'
+        Building CXX object CMakeFiles/cmTC_079db.dir/test_mpi.cpp.o
+        /usr/bin/c++  -isystem /opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/include -isystem /opt/spack/var/spack/environments/spack-env/.spack-env/view/include  -o CMakeFiles/cmTC_079db.dir/test_mpi.cpp.o -c /mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-Nts7mq/test_mpi.cpp
+        Linking CXX executable cmTC_079db
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_079db.dir/link.txt --verbose=1
+        /usr/bin/c++ -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib -L/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -L/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -L/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib CMakeFiles/cmTC_079db.dir/test_mpi.cpp.o -o cmTC_079db  -Wl,-rpath,/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib /opt/spack/var/spack/environments/spack-env/.spack-env/view/lib/libmpi.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-Nts7mq'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1283 (try_compile)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1677 (_MPI_try_staged_settings)"
+      - "/opt/spack/var/spack/environments/spack-env/.spack-env/view/cmake/hdf5-config.cmake:116 (find_package)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindHDF5.cmake:513 (find_package)"
+      - "cmake/FindCasacore.cmake:142 (find_package)"
+      - "cmake/FindCasacore.cmake:239 (casacore_find_package)"
+      - "CMakeLists.txt:7 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode MPICXX"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-0FbMhr"
+      binary: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-0FbMhr"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_MPICXX"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-0FbMhr'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_02049/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_02049.dir/build.make CMakeFiles/cmTC_02049.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-0FbMhr'
+        Building CXX object CMakeFiles/cmTC_02049.dir/test_mpi.cpp.o
+        /usr/bin/c++  -isystem /opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/include -isystem /opt/spack/var/spack/environments/spack-env/.spack-env/view/include  -o CMakeFiles/cmTC_02049.dir/test_mpi.cpp.o -c /mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-0FbMhr/test_mpi.cpp
+        Linking CXX executable cmTC_02049
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_02049.dir/link.txt --verbose=1
+        /usr/bin/c++ -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib -L/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -L/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -L/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib CMakeFiles/cmTC_02049.dir/test_mpi.cpp.o -o cmTC_02049  -Wl,-rpath,/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib /opt/spack/var/spack/environments/spack-env/.spack-env/view/lib/libmpi.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-0FbMhr'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "cmake/FindCasacore.cmake:264 (try_compile)"
+      - "CMakeLists.txt:7 (find_package)"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp"
+      binary: "/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "_success"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_e99d7/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_e99d7.dir/build.make CMakeFiles/cmTC_e99d7.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp'
+        Building CXX object CMakeFiles/cmTC_e99d7.dir/casacore_version.cxx.o
+        /usr/bin/c++  -I/opt/casacore/include  -o CMakeFiles/cmTC_e99d7.dir/casacore_version.cxx.o -c /mnt/compress_ms/CMakeFiles/casacore_version/casacore_version.cxx
+        Linking CXX executable cmTC_e99d7
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e99d7.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_e99d7.dir/casacore_version.cxx.o -o cmTC_e99d7  /opt/casacore/lib/libcasa_casa.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1283 (try_compile)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1327 (_MPI_try_staged_settings)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1650 (_MPI_check_lang_works)"
+      - "/opt/spack/var/spack/environments/spack-env/.spack-env/view/cmake/hdf5-config.cmake:116 (find_package)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindHDF5.cmake:513 (find_package)"
+      - "cmake/FindCasacore.cmake:142 (find_package)"
+      - "cmake/FindCasacore.cmake:239 (casacore_find_package)"
+      - "CMakeLists.txt:7 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-7yPIJH"
+      binary: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-7yPIJH"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-7yPIJH'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_fc3f1/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_fc3f1.dir/build.make CMakeFiles/cmTC_fc3f1.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-7yPIJH'
+        Building C object CMakeFiles/cmTC_fc3f1.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/include -isystem /opt/spack/var/spack/environments/spack-env/.spack-env/view/include  -o CMakeFiles/cmTC_fc3f1.dir/test_mpi.c.o -c /mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-7yPIJH/test_mpi.c
+        Linking C executable cmTC_fc3f1
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fc3f1.dir/link.txt --verbose=1
+        /usr/bin/cc -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib -L/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -L/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -L/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib CMakeFiles/cmTC_fc3f1.dir/test_mpi.c.o -o cmTC_fc3f1  -Wl,-rpath,/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib /opt/spack/var/spack/environments/spack-env/.spack-env/view/lib/libmpi.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-7yPIJH'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1283 (try_compile)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1327 (_MPI_try_staged_settings)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1650 (_MPI_check_lang_works)"
+      - "/opt/spack/var/spack/environments/spack-env/.spack-env/view/cmake/hdf5-config.cmake:116 (find_package)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindHDF5.cmake:513 (find_package)"
+      - "cmake/FindCasacore.cmake:142 (find_package)"
+      - "cmake/FindCasacore.cmake:239 (casacore_find_package)"
+      - "CMakeLists.txt:7 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode normal"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-mubNyZ"
+      binary: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-mubNyZ"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-mubNyZ'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_aebac/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_aebac.dir/build.make CMakeFiles/cmTC_aebac.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-mubNyZ'
+        Building CXX object CMakeFiles/cmTC_aebac.dir/test_mpi.cpp.o
+        /usr/bin/c++  -isystem /opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/include -isystem /opt/spack/var/spack/environments/spack-env/.spack-env/view/include  -o CMakeFiles/cmTC_aebac.dir/test_mpi.cpp.o -c /mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-mubNyZ/test_mpi.cpp
+        Linking CXX executable cmTC_aebac
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_aebac.dir/link.txt --verbose=1
+        /usr/bin/c++ -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib -L/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -L/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -L/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib CMakeFiles/cmTC_aebac.dir/test_mpi.cpp.o -o cmTC_aebac  -Wl,-rpath,/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib /opt/spack/var/spack/environments/spack-env/.spack-env/view/lib/libmpi.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-mubNyZ'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1283 (try_compile)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1677 (_MPI_try_staged_settings)"
+      - "/opt/spack/var/spack/environments/spack-env/.spack-env/view/cmake/hdf5-config.cmake:116 (find_package)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindHDF5.cmake:513 (find_package)"
+      - "cmake/FindCasacore.cmake:142 (find_package)"
+      - "cmake/FindCasacore.cmake:239 (casacore_find_package)"
+      - "CMakeLists.txt:7 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode MPICXX"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-Ox8v3m"
+      binary: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-Ox8v3m"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_MPICXX"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-Ox8v3m'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_25d7f/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_25d7f.dir/build.make CMakeFiles/cmTC_25d7f.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-Ox8v3m'
+        Building CXX object CMakeFiles/cmTC_25d7f.dir/test_mpi.cpp.o
+        /usr/bin/c++  -isystem /opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/include -isystem /opt/spack/var/spack/environments/spack-env/.spack-env/view/include  -o CMakeFiles/cmTC_25d7f.dir/test_mpi.cpp.o -c /mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-Ox8v3m/test_mpi.cpp
+        Linking CXX executable cmTC_25d7f
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_25d7f.dir/link.txt --verbose=1
+        /usr/bin/c++ -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib -L/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -L/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -L/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib CMakeFiles/cmTC_25d7f.dir/test_mpi.cpp.o -o cmTC_25d7f  -Wl,-rpath,/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib /opt/spack/var/spack/environments/spack-env/.spack-env/view/lib/libmpi.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-Ox8v3m'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "cmake/FindCasacore.cmake:264 (try_compile)"
+      - "CMakeLists.txt:7 (find_package)"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp"
+      binary: "/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "_success"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_fc404/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_fc404.dir/build.make CMakeFiles/cmTC_fc404.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp'
+        Building CXX object CMakeFiles/cmTC_fc404.dir/casacore_version.cxx.o
+        /usr/bin/c++  -I/opt/casacore/include  -o CMakeFiles/cmTC_fc404.dir/casacore_version.cxx.o -c /mnt/compress_ms/CMakeFiles/casacore_version/casacore_version.cxx
+        Linking CXX executable cmTC_fc404
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fc404.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_fc404.dir/casacore_version.cxx.o -o cmTC_fc404  /opt/casacore/lib/libcasa_casa.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1283 (try_compile)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1327 (_MPI_try_staged_settings)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1650 (_MPI_check_lang_works)"
+      - "/opt/spack/var/spack/environments/spack-env/.spack-env/view/cmake/hdf5-config.cmake:116 (find_package)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindHDF5.cmake:513 (find_package)"
+      - "cmake/FindCasacore.cmake:142 (find_package)"
+      - "cmake/FindCasacore.cmake:239 (casacore_find_package)"
+      - "CMakeLists.txt:7 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-5Up9Cv"
+      binary: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-5Up9Cv"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-5Up9Cv'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_406a5/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_406a5.dir/build.make CMakeFiles/cmTC_406a5.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-5Up9Cv'
+        Building C object CMakeFiles/cmTC_406a5.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/include -isystem /opt/spack/var/spack/environments/spack-env/.spack-env/view/include  -o CMakeFiles/cmTC_406a5.dir/test_mpi.c.o -c /mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-5Up9Cv/test_mpi.c
+        Linking C executable cmTC_406a5
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_406a5.dir/link.txt --verbose=1
+        /usr/bin/cc -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib -L/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -L/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -L/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib CMakeFiles/cmTC_406a5.dir/test_mpi.c.o -o cmTC_406a5  -Wl,-rpath,/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib /opt/spack/var/spack/environments/spack-env/.spack-env/view/lib/libmpi.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-5Up9Cv'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1283 (try_compile)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1327 (_MPI_try_staged_settings)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1650 (_MPI_check_lang_works)"
+      - "/opt/spack/var/spack/environments/spack-env/.spack-env/view/cmake/hdf5-config.cmake:116 (find_package)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindHDF5.cmake:513 (find_package)"
+      - "cmake/FindCasacore.cmake:142 (find_package)"
+      - "cmake/FindCasacore.cmake:239 (casacore_find_package)"
+      - "CMakeLists.txt:7 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode normal"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-oQgG6l"
+      binary: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-oQgG6l"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-oQgG6l'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_96459/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_96459.dir/build.make CMakeFiles/cmTC_96459.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-oQgG6l'
+        Building CXX object CMakeFiles/cmTC_96459.dir/test_mpi.cpp.o
+        /usr/bin/c++  -isystem /opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/include -isystem /opt/spack/var/spack/environments/spack-env/.spack-env/view/include  -o CMakeFiles/cmTC_96459.dir/test_mpi.cpp.o -c /mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-oQgG6l/test_mpi.cpp
+        Linking CXX executable cmTC_96459
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_96459.dir/link.txt --verbose=1
+        /usr/bin/c++ -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib -L/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -L/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -L/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib CMakeFiles/cmTC_96459.dir/test_mpi.cpp.o -o cmTC_96459  -Wl,-rpath,/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib /opt/spack/var/spack/environments/spack-env/.spack-env/view/lib/libmpi.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-oQgG6l'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1283 (try_compile)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1677 (_MPI_try_staged_settings)"
+      - "/opt/spack/var/spack/environments/spack-env/.spack-env/view/cmake/hdf5-config.cmake:116 (find_package)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindHDF5.cmake:513 (find_package)"
+      - "cmake/FindCasacore.cmake:142 (find_package)"
+      - "cmake/FindCasacore.cmake:239 (casacore_find_package)"
+      - "CMakeLists.txt:7 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode MPICXX"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-QLwx5m"
+      binary: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-QLwx5m"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_MPICXX"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-QLwx5m'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_1d068/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_1d068.dir/build.make CMakeFiles/cmTC_1d068.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-QLwx5m'
+        Building CXX object CMakeFiles/cmTC_1d068.dir/test_mpi.cpp.o
+        /usr/bin/c++  -isystem /opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/include -isystem /opt/spack/var/spack/environments/spack-env/.spack-env/view/include  -o CMakeFiles/cmTC_1d068.dir/test_mpi.cpp.o -c /mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-QLwx5m/test_mpi.cpp
+        Linking CXX executable cmTC_1d068
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1d068.dir/link.txt --verbose=1
+        /usr/bin/c++ -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib -L/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -L/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -L/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib CMakeFiles/cmTC_1d068.dir/test_mpi.cpp.o -o cmTC_1d068  -Wl,-rpath,/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib /opt/spack/var/spack/environments/spack-env/.spack-env/view/lib/libmpi.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-QLwx5m'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "cmake/FindCasacore.cmake:264 (try_compile)"
+      - "CMakeLists.txt:7 (find_package)"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp"
+      binary: "/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "_success"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_87ab7/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_87ab7.dir/build.make CMakeFiles/cmTC_87ab7.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp'
+        Building CXX object CMakeFiles/cmTC_87ab7.dir/casacore_version.cxx.o
+        /usr/bin/c++  -I/opt/casacore/include  -o CMakeFiles/cmTC_87ab7.dir/casacore_version.cxx.o -c /mnt/compress_ms/CMakeFiles/casacore_version/casacore_version.cxx
+        Linking CXX executable cmTC_87ab7
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_87ab7.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_87ab7.dir/casacore_version.cxx.o -o cmTC_87ab7  /opt/casacore/lib/libcasa_casa.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1283 (try_compile)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1327 (_MPI_try_staged_settings)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1650 (_MPI_check_lang_works)"
+      - "/opt/spack/var/spack/environments/spack-env/.spack-env/view/cmake/hdf5-config.cmake:116 (find_package)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindHDF5.cmake:513 (find_package)"
+      - "cmake/FindCasacore.cmake:142 (find_package)"
+      - "cmake/FindCasacore.cmake:239 (casacore_find_package)"
+      - "CMakeLists.txt:7 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-e2vWn0"
+      binary: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-e2vWn0"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-e2vWn0'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_b7d45/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_b7d45.dir/build.make CMakeFiles/cmTC_b7d45.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-e2vWn0'
+        Building C object CMakeFiles/cmTC_b7d45.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/include -isystem /opt/spack/var/spack/environments/spack-env/.spack-env/view/include  -o CMakeFiles/cmTC_b7d45.dir/test_mpi.c.o -c /mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-e2vWn0/test_mpi.c
+        Linking C executable cmTC_b7d45
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b7d45.dir/link.txt --verbose=1
+        /usr/bin/cc -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib -L/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -L/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -L/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib CMakeFiles/cmTC_b7d45.dir/test_mpi.c.o -o cmTC_b7d45  -Wl,-rpath,/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib /opt/spack/var/spack/environments/spack-env/.spack-env/view/lib/libmpi.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-e2vWn0'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1283 (try_compile)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1327 (_MPI_try_staged_settings)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1650 (_MPI_check_lang_works)"
+      - "/opt/spack/var/spack/environments/spack-env/.spack-env/view/cmake/hdf5-config.cmake:116 (find_package)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindHDF5.cmake:513 (find_package)"
+      - "cmake/FindCasacore.cmake:142 (find_package)"
+      - "cmake/FindCasacore.cmake:239 (casacore_find_package)"
+      - "CMakeLists.txt:7 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode normal"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-lnpnK0"
+      binary: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-lnpnK0"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-lnpnK0'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_eb6ce/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_eb6ce.dir/build.make CMakeFiles/cmTC_eb6ce.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-lnpnK0'
+        Building CXX object CMakeFiles/cmTC_eb6ce.dir/test_mpi.cpp.o
+        /usr/bin/c++  -isystem /opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/include -isystem /opt/spack/var/spack/environments/spack-env/.spack-env/view/include  -o CMakeFiles/cmTC_eb6ce.dir/test_mpi.cpp.o -c /mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-lnpnK0/test_mpi.cpp
+        Linking CXX executable cmTC_eb6ce
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_eb6ce.dir/link.txt --verbose=1
+        /usr/bin/c++ -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib -L/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -L/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -L/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib CMakeFiles/cmTC_eb6ce.dir/test_mpi.cpp.o -o cmTC_eb6ce  -Wl,-rpath,/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib /opt/spack/var/spack/environments/spack-env/.spack-env/view/lib/libmpi.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-lnpnK0'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1283 (try_compile)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindMPI.cmake:1677 (_MPI_try_staged_settings)"
+      - "/opt/spack/var/spack/environments/spack-env/.spack-env/view/cmake/hdf5-config.cmake:116 (find_package)"
+      - "/opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/share/cmake-3.31/Modules/FindHDF5.cmake:513 (find_package)"
+      - "cmake/FindCasacore.cmake:142 (find_package)"
+      - "cmake/FindCasacore.cmake:239 (casacore_find_package)"
+      - "CMakeLists.txt:7 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode MPICXX"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-oSUACq"
+      binary: "/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-oSUACq"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_MPICXX"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-oSUACq'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_32e65/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_32e65.dir/build.make CMakeFiles/cmTC_32e65.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-oSUACq'
+        Building CXX object CMakeFiles/cmTC_32e65.dir/test_mpi.cpp.o
+        /usr/bin/c++  -isystem /opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/include -isystem /opt/spack/var/spack/environments/spack-env/.spack-env/view/include  -o CMakeFiles/cmTC_32e65.dir/test_mpi.cpp.o -c /mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-oSUACq/test_mpi.cpp
+        Linking CXX executable cmTC_32e65
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_32e65.dir/link.txt --verbose=1
+        /usr/bin/c++ -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -Wl,-rpath -Wl,/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib -L/opt/spack/opt/spack/linux-icelake/openmpi-4.1.8-2mv5p75c56e3bmh4gxxfls3yoa4dgezf/lib -L/opt/spack/opt/spack/linux-icelake/hwloc-2.12.2-bnv6bdsx5esu6m3herlnpywgi7w445j4/lib -L/opt/spack/opt/spack/linux-icelake/libevent-2.1.12-sytkykoe237tokdimkzkupumq3qsg5yi/lib CMakeFiles/cmTC_32e65.dir/test_mpi.cpp.o -o cmTC_32e65  -Wl,-rpath,/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib /opt/spack/var/spack/environments/spack-env/.spack-env/view/lib/libmpi.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/CMakeScratch/TryCompile-oSUACq'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "cmake/FindCasacore.cmake:264 (try_compile)"
+      - "CMakeLists.txt:7 (find_package)"
+    directories:
+      source: "/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp"
+      binary: "/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/mnt/compress_ms/cmake"
+    buildResult:
+      variable: "_success"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E env VERBOSE=1 /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake -f Makefile cmTC_5fc6d/fast
+        /opt/spack/var/spack/environments/spack-env/.spack-env/view/bin/gmake  -f CMakeFiles/cmTC_5fc6d.dir/build.make CMakeFiles/cmTC_5fc6d.dir/build
+        gmake[1]: Entering directory '/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp'
+        Building CXX object CMakeFiles/cmTC_5fc6d.dir/casacore_version.cxx.o
+        /usr/bin/c++  -I/opt/casacore/include  -o CMakeFiles/cmTC_5fc6d.dir/casacore_version.cxx.o -c /mnt/compress_ms/CMakeFiles/casacore_version/casacore_version.cxx
+        Linking CXX executable cmTC_5fc6d
+        /opt/spack/opt/spack/linux-icelake/cmake-3.31.9-g6ycpmgc26veouvqemgm2r3ezpu74xvk/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5fc6d.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_5fc6d.dir/casacore_version.cxx.o -o cmTC_5fc6d  /opt/casacore/lib/libcasa_casa.so
+        gmake[1]: Leaving directory '/mnt/compress_ms/CMakeFiles/casacore_version/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+...

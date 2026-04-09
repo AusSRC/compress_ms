@@ -1,0 +1,22 @@
+Start testing: Mar 22 13:20 UTC
+----------------------------------------------------------
+3/11 Testing: mgard_real
+3/11 Test: mgard_real
+Command: "/opt/venv/bin/python" "/mnt/compress_ms/test/tcompress_ms.py" "test_orig_r.ms" "test_mr.ms" "real" "mgard" "/mnt/compress_ms/test/adios_config.yaml" "stepsize"
+Directory: /mnt/compress_ms/test
+"mgard_real" start time: Mar 22 13:20 UTC
+Output:
+----------------------------------------------------------
+Will write 36.62 MB of data into test_orig_r.ms
+
+
+wrote complex visibilities to DATA_mgard column
+<end of output>
+Test time =   0.73 sec
+----------------------------------------------------------
+Test Passed.
+"mgard_real" end time: Mar 22 13:20 UTC
+"mgard_real" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Mar 22 13:20 UTC

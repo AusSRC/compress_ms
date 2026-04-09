@@ -1,0 +1,12 @@
+none_real 1 0.375715
+none_complex 1 0.464753
+mgard_real 2 0.362538
+mgard_complex 2 0.236123
+zfp_real 1 0.357394
+zfp_complex 1 0.460302
+bzip2_real 1 0.354467
+bzip2_complex 1 0.460957
+mgard_complex_complex 1 0.459389
+config_test 0 0
+nsteps_test 1 0.46047
+---

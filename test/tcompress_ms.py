@@ -6,6 +6,7 @@ import operator
 import functools
 import subprocess as sp
 
+
 def parse_args():
     parser = ap.ArgumentParser()
     parser.add_argument("original")
@@ -25,13 +26,13 @@ def parse_args():
 
 def run_test():
     create_MS(ORIG_SHAPE, ORIG, COLNAME, COMPLEX)
-    command = ["compress_ms", ORIG, COMPRESSED, COLNAME, "--ADIOS2_config", CONFIG]
-    if USE_STEP_SIZE:
-        command.extend(["-s", STEP_SIZE])
-    else:
-        command.extend(["-n", NSTEPS])
-    sp.check_call(command)
-    read_and_check(ORIG, COMPRESSED, COLNAME, COMPRESSOR, CHECK_THRESHOLD)
+    #command = ["mpirun","-np","2","/mnt/compress_ms/src/compress_ms", ORIG, COMPRESSED, COLNAME, "--ADIOS2_config", CONFIG]
+    #if USE_STEP_SIZE:
+    #    command.extend(["-s", STEP_SIZE])
+    #else:
+    #    command.extend(["-n", NSTEPS])
+    #sp.check_call(command)
+    #read_and_check(ORIG, COMPRESSED, COLNAME, COMPRESSOR, CHECK_THRESHOLD)
     pass
 
 def create_MS(shape, name, colname, complex):

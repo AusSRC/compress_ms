@@ -8,7 +8,7 @@ find_package(Casacore)
 find_package(MPI REQUIRED)
 find_package(Python REQUIRED)
 find_package(Boost 1.83 COMPONENTS program_options REQUIRED)
-
+add_compile_definitions("HAVE_MPI")
 enable_testing()
 
 add_subdirectory(src)

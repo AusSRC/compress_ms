@@ -4,17 +4,13 @@
 #include <casacore/tables/Tables/TableCopy.h>
 #include <casacore/tables/Tables/SetupNewTab.h>
 #include <boost/program_options.hpp>
+#include <adios2.h>
 #include <mpi.h>
 
 using namespace casacore;
 namespace po = boost::program_options;
-
-int main (int argc, const char* argv[])
-{
-    MPI_Init(&argc, &argv);
-    int comm_size, comm_rank;
-    MPI_Comm_size(MPI_COMM_WORLD, &comm_size);
-    MPI_Comm_rank(MPI_COMM_WORKLD. &comm_rank);
+int set_options(po::variables_map &vm,int argc, char **argv){
+    int status=0;
     po::options_description hidden;
     hidden.add_options()
         ("input_ms", po::value<std::string>()->required(), "MeasurementSet to be compressed")
@@ -39,9 +35,8 @@ int main (int argc, const char* argv[])
     po::options_description desc;
     desc.add(visible).add(hidden);
 
-    po::variables_map vm;
+    
     po::store(po::command_line_parser(argc, argv).options(desc).positional(p).run(), vm);
-
     if (vm.count("config"))
     {  
         std::string config = vm["config"].as<std::string>();
@@ -60,21 +55,235 @@ int main (int argc, const char* argv[])
     {
         std::cout << "Usage: compress_ms <input_ms> <output_ms> <column_name> [opts] \n" << std::endl;
         std::cout << visible << std::endl;
-        return 1;
+        return status=1;
     }
     if (!vm.count("input_ms"))
     {
         throw std::invalid_argument("'input_ms' argument is required");
+        return status=1;
     }
     if (!vm.count("output_ms"))
     {
         throw std::invalid_argument("'output_ms' argument is required");
+        return status=1;
     }
     if (!vm.count("column_name"))
     {
         throw std::invalid_argument("'column_name' argument is required");
+        return status=1;
     }
     po::notify(vm);
+    return status;
+}
+
+template <class T>
+void arraycol(Table &msIn,ColumnDesc &msCD,std::string &colName){
+    ArrayColumn<T> dataCol(msIn, colName);
+        if (msCD.options() != ColumnDesc::FixedShape)
+        {
+            msCD.setShape(dataCol.shape(0));
+        }
+}
+
+void bindcoltoadios(SetupNewTable &newTab,std::string &colName, std::string &operation, std::string &errBound, std::string &errBoundType,std::string &configFile){
+    std::cout << "Starting Copy" << std::endl;
+
+            //copy measurement set
+        if (configFile.empty()) {
+            Adios2StMan Adios2stman(
+            MPI_COMM_WORLD,
+            std::string(""),
+            {},
+            {{}},
+            {{{"Variable", colName},
+            {"Operator", operation},
+            {"Accuracy", errBound},
+            {"Mode", errBoundType}}});
+            newTab.bindColumn(colName,Adios2stman);
+
+        }
+        else{
+            Adios2StMan::from_config_t from_config {};
+            Adios2StMan Adios2stman(
+                MPI_COMM_WORLD,
+                configFile,
+                from_config);
+            newTab.bindColumn(colName,Adios2stman);
+            }
+}
+
+
+void copycols(int comm_size, int comm_rank,Table &msIn, Table &msOut, TableDesc &msTD,std::string &colName){
+    for (uint i=comm_rank; i<msTD.ncolumn(); i+=comm_size)
+        {
+            std::string colName_i = msTD.columnDesc(i).name();
+            if (colName_i !=colName){
+                std::cout << "Copying Column: " + colName_i << std::endl;
+                TableCopy::copyColumnData(msIn, colName_i, msOut, colName_i, false);
+            }
+        }
+}
+
+
+//template <class T>
+//void copycoladios(int comm_size, int comm_rank,Table &msIn, Table &msOut, std::string &colName, int stepsize, int nsteps){
+//    adios2::ADIOS adios(MPI_COMM_WORLD);
+//    adios2::IO bpio=adios.declareio("adios2stman2");
+//    IPosition cellShape;
+//    Slicer rwslice;
+//    nrows = dataCol.nrow();
+//    int rows_per_rank = nrows / comm_size;
+//   int remainder = nrows % comm_size;
+//    int local_rows = rows_per_rank + (comm_rank < remainder ? 1 : 0);
+//    int offset = comm_rank * rows_per_rank + std::min(comm_rank, remainder);
+    
+//    msOut.addRow(nrows);
+//   cellShape = dataCol.shape(0);
+//    Array<T> data(cellShape.concatenate(IPosition(1,local_rows)));
+//    Array<T> outdata(3,local_rows,cellshape[1],cellshape[0]);
+//    adios2::Variable variable=bpio.DefineVariable<float>(colname,size,start,offset,adios2::ConstantDims);
+//    rwslice = Slicer(IPosition(1,offset), IPosition(1,local_rows));
+//    dataCol.getColumnRange(rwslice, data, False);
+//    /*This will come as an array of [4,120,10000] from stman
+//    We need translate this into [10000,120,4]*/
+//    for(uint c=0;c<cellShape[1];++c){
+//            for(uint p=0;p<cellShape[0];++p){
+//                for (uint r=0;r<local_rows;++r){
+//                outdata(IPosition(3,r,c,p))=data(IPosition(3,p,c,r));
+//            }
+//        }
+//    }
+//    adios2::Dims size={cellShape.concatenate(IPosition(1,nrows))};
+//    adios2::Dims start={IPosition(3,0,0,offset)};
+//    adios2::Dims offset={cellShape.concatenate(IPosition(1,local_rows))};
+//
+//
+//}
+template <class T>
+void copycolname(int comm_size, int comm_rank,Table &msIn, Table &msOut, std::string &colName, int stepsize, int nsteps){
+    int nrows, laststepsize;
+    
+    
+    IPosition cellShape,outshape;
+    Slicer rwslice;
+    ArrayColumn<T> dataCol(msIn, colName);
+    nrows = dataCol.nrow();
+    
+    /*if (stepsize){
+        nsteps = nrows/stepsize;
+        laststepsize = nrows - nsteps*stepsize;
+    }
+    else{
+        stepsize = nrows/nsteps;
+        laststepsize = nrows - nsteps*stepsize;
+    }*/
+
+
+    int rows_per_rank = nrows / comm_size;
+    int remainder = nrows % comm_size;
+    int local_rows = rows_per_rank + (comm_rank < remainder ? 1 : 0);
+    int offset = comm_rank * rows_per_rank + std::min(comm_rank, remainder);
+    cellShape = dataCol.shape(0);
+    
+    std::cout << "cellShape = " << cellShape << std::endl;
+    Array<T> data(cellShape.concatenate(IPosition(1,local_rows)));
+    ArrayColumn<T> outCol(msOut, colName);
+    outshape=outCol.shape(0);
+    std::cout << "outShape = " << outshape << std::endl;
+    
+    std::cout << "dataShape = " << data.shape() << std::endl;
+    std::cout << "out rows= "  << msOut.nrow()<<std::endl; 
+    std::cout << "Rank " << comm_rank
+          << " nrows=" << nrows
+          << " offset=" << offset
+          << " local_rows=" << local_rows       
+          << std::endl;    
+    
+    rwslice=Slicer(IPosition(1,offset),IPosition(1,local_rows));
+    std::cout<<"test"<<std::endl;
+    
+    dataCol.getColumnRange(rwslice, data, False);
+    
+    
+    std::cout << "Operating on rank "<< comm_rank <<" with shape " <<data.shape().toString() << std::endl;
+    outCol.putColumnRange(rwslice,data);
+    
+    MPI_Barrier(MPI_COMM_WORLD);
+    
+    
+    
+
+}
+
+template <class T>
+void copycolnamesteps(int comm_size, int comm_rank,Table &msIn, Table &msOut, std::string &colName, int stepsize, int nsteps){
+    int nrows, laststepsize;
+    
+    
+    IPosition cellShape,outshape;
+    Slicer rwslice;
+    ArrayColumn<T> dataCol(msIn, colName);
+    nrows = dataCol.nrow();
+    double remainder;
+    if (stepsize){
+        remainder = nrows%stepsize;
+        nsteps = nrows/stepsize +(remainder != 0 ? 1:0);
+        std::cout<<"remainder="<<remainder<<",nsteps="<<nsteps<<std::endl;
+        laststepsize = std::min(nrows - (nsteps-1)*stepsize,stepsize);
+    }
+    else{
+        remainder = nrows%nsteps;
+        stepsize = nrows/nsteps;
+        laststepsize = nrows - nsteps*stepsize;
+    }
+
+    cellShape = dataCol.shape(0);
+    
+    std::cout << "cellShape = " << cellShape << std::endl;
+    
+    ArrayColumn<T> outCol(msOut, colName);
+
+    for (uint i=comm_rank;i<nsteps;i+=comm_size){
+        if (i == nsteps-1){
+            std::cout<<"i="<<i<<",laststep"<<std::endl;
+            rwslice=Slicer(IPosition(1,i*stepsize),IPosition(1,laststepsize));
+            Array<T> data(cellShape.concatenate(IPosition(1,laststepsize)));
+            dataCol.getColumnRange(rwslice, data, False);
+            std::cout << "Operating on rank "<< comm_rank <<" with shape " <<data.shape().toString() << std::endl;
+            outCol.putColumnRange(rwslice,data);
+            outCol.putColumnRange(rwslice,data);
+        }
+        else{
+            std::cout<<"i="<<i<<",laststepsize="<<laststepsize<<std::endl;
+            rwslice=Slicer(IPosition(1,i*stepsize),IPosition(1,stepsize));
+            Array<T> data(cellShape.concatenate(IPosition(1,stepsize)));
+            dataCol.getColumnRange(rwslice, data, False);
+            std::cout << "Operating on rank "<< comm_rank <<" with shape " <<data.shape().toString() << std::endl;
+            outCol.putColumnRange(rwslice,data);
+        }
+    }   
+    
+    MPI_Barrier(MPI_COMM_WORLD);
+    
+}
+
+int main(int argc,  char* argv[])
+{
+    MPI_Init(&argc, &argv);
+    int comm_size, comm_rank, status;
+    MPI_Comm_size(MPI_COMM_WORLD, &comm_size);
+    MPI_Comm_rank(MPI_COMM_WORLD, &comm_rank);
+    
+
+    po::variables_map vm;
+    status=set_options(vm,argc,argv);
+    if (status !=0){
+        std::cout<<"Error setting up the options"<<std::endl;
+        return 1;
+    }
+    
+
+    
 
     std::string inFile = vm["input_ms"].as<std::string>();
     std::string outFile = vm["output_ms"].as<std::string>();
@@ -108,14 +317,15 @@ int main (int argc, const char* argv[])
     {
         configFile = vm["ADIOS2_config"].as<std::string>();
     }
-
-    {
+    
+    
         //define adios storage manager
-        
-        
+    
+    {
         std::cout << "Opening MeasurementSet" << std::endl;
 
         Table msIn(inFile);
+        uint rows=msIn.nrow();
         
         TableDesc msTD(msIn.tableDesc());
         ColumnDesc msCD(msTD.columnDesc(colName));
@@ -123,20 +333,11 @@ int main (int argc, const char* argv[])
 
         if (isReal(colType))
         {
-            ArrayColumn<float> dataCol(msIn, colName);
-            if (msCD.options() != ColumnDesc::FixedShape)
-            {
-                msCD.setShape(dataCol.shape(0));
-            }
-            
+            arraycol<float>(msIn,msCD,colName);            
         }
         else if (isComplex(colType))
         {
-            ArrayColumn<Complex> dataCol(msIn, colName);
-            if (msCD.options() != ColumnDesc::FixedShape)
-            {
-                msCD.setShape(dataCol.shape(0));
-            }
+            arraycol<Complex>(msIn,msCD,colName); 
         }
         else
         {
@@ -149,150 +350,44 @@ int main (int argc, const char* argv[])
             msTD.removeColumn(colName);
             msTD.addColumn(msCD);
         }
-        Table msOut;
-        if (comm_rank == 0)
-        {
-            SetupNewTable newTab(outFile, msTD, Table::New);
-            
-            std::cout << "Starting Copy" << std::endl;
 
-            //copy measurement set
-            if (configFile.empty()) 
-            {
-                Adios2StMan adios2stman(
-                    MPI_COMM_WORLD,
-                    std::string(""),
-                    {},
-                    {{}},
-                    {{{"Variable", colName},
-                    {"Operator", operation},
-                    {"Accuracy", errBound},
-                    {"Mode", errBoundType}}});
-                newTab.bindColumn(colName, adios2stman);
-            }
-            else
-            {
-                Adios2StMan::from_config_t from_config {};
-                Adios2StMan adios2stman(
-                    MPI_COMM_WORLD,
-                    configFile,
-                    from_config);
-                newTab.bindColumn(colName, adios2stman);
-            }
-            msOut = Table(MPI_COMM_WORLD, newTab);
-            ColumnDesc outColDesc = msOut.tableDesc().columnDesc(colName);
-            outColDesc.setOptions(ColumnDesc::FixedShape);
-            TableCopy::copySubTables(msOut, msIn);
-            msOut.addRow(msIn.nrow());
-            MPI_Barrier(MPI_COMM_WORLD);
-        }
-        else
-        {
-            MPI_Barrier(MPI_COMM_WORLD);
-            msOut = Table(MPI_COMM_WORLD, outFile);
-        }
+
+        Table msOut;
+        SetupNewTable newTab(outFile, msTD, Table::New);
+        IPosition outshape(2,120,4);
+        //newTab.setShapeColumn(colName,outshape);
+        bindcoltoadios(newTab,colName,operation,errBound,errBoundType,configFile);
+        
+        //newTab.bindColumn(colName, Adios2stman);
+        MPI_Barrier(MPI_COMM_WORLD);
+        msOut = Table(MPI_COMM_WORLD, newTab,rows);
+    
+        ColumnDesc outColDesc = msOut.tableDesc().columnDesc(colName);
+        outColDesc.setOptions(ColumnDesc::FixedShape);
+        TableCopy::copySubTables(msOut, msIn);
+        std::cout<<msIn.nrow()<<std::endl;
+        
         int nrows, laststepsize;
         IPosition cellShape;
         Slicer rwslice;
-        
-        for (uInt i=0; i<msTD.ncolumn(); i++)
-        {
-            std::string colName_i = msTD.columnDesc(i).name();
-            // Each rank takes a column as long as it's not the column to be compressed.
-            if (comm_rank % msTD.ncolumn() == i % comm_size)
-            {
-                std::cout << "Copying Column: " + colName_i << std::endl;
-            }
-            if (colName_i == colName)
-            {
-                //Stop all other ranks here to do this copy together
-                MPI_Barrier(MPI_COMM_WORLD);
-                if (isReal(colType))
-                {
-                    ArrayColumn<float> dataCol(msIn, colName);
-                    nrows = dataCol.nrow();
-                    if (stepsize)
-                    {
-                        nsteps = nrows/stepsize;
-                        laststepsize = nrows - nsteps*stepsize;
-                    }
-                    else
-                    {
-                        stepsize = nrows/nsteps;
-                        laststepsize = nrows - nsteps*stepsize;
-                    }
-                    cellShape = dataCol.shape(0);
-                    Array<float> data(cellShape.concatenate(IPosition(1,stepsize)));
-                    ArrayColumn<float> outCol(msOut, colName);
-                    if (comm_rank < nsteps)
-                    {
-                        for (int i = 0; i < nsteps; i++)
-                        {
-                            if (comm_rank % nsteps == i % comm_size)
-                            {
-                                rwslice = Slicer(IPosition(1,i*stepsize), IPosition(1, stepsize));
-                                dataCol.getColumnRange(rwslice, data, True);
-                                std::cout << "Operating on step " + std::to_string(i) + " with shape " + data.shape().toString() << std::endl;
-                                outCol.putColumnRange(rwslice, data);
-                            }
-                        }
-                    }
-                    if (laststepsize > 0 && comm_rank == 0)
-                    {
-                        rwslice = Slicer(IPosition(1,nsteps*stepsize), IPosition(1, laststepsize));
-                        dataCol.getColumnRange(rwslice, data, True);
-                        std::cout << "Adding Last step with shape " + data.shape().toString() << std::endl;
-                        outCol.putColumnRange(rwslice, data);
-                    }
-                }
-                else if (isComplex(colType))
-                {
-                    ArrayColumn<Complex> dataCol(msIn, colName);
-                    nrows = dataCol.nrow();
-                    if (stepsize)
-                    {
-                        nsteps = nrows/stepsize;
-                        laststepsize = nrows - nsteps*stepsize;
-                    }
-                    else
-                    {
-                        stepsize = nrows/nsteps;
-                        laststepsize = nrows - nsteps*stepsize;
-                    }
-                    cellShape = dataCol.shape(0);
-                    Array<Complex> data(cellShape.concatenate(IPosition(1,stepsize)));
-                    ArrayColumn<Complex> outCol(msOut, colName);
-                    if (comm_rank < nsteps)
-                    {
-                        for (int i = 0; i < nsteps; i++)
-                        {
-                            if (comm_rank % nsteps == i % comm_size)
-                            {
-                                rwslice = Slicer(IPosition(1,i*stepsize), IPosition(1, stepsize));
-                                dataCol.getColumnRange(rwslice, data, True);
-                                std::cout << "Operating on step " + std::to_string(i) + " with shape " + data.shape().toString() << std::endl;
-                                outCol.putColumnRange(rwslice, data);
-                            }
-                        }
-                    }
-                    if (laststepsize > 0 && comm_rank == 0)
-                    {
-                        rwslice = Slicer(IPosition(1,nsteps*stepsize), IPosition(1, laststepsize));
-                        dataCol.getColumnRange(rwslice, data, True);
-                        std::cout << "Adding Last step with shape " + data.shape().toString() << std::endl;
-                        outCol.putColumnRange(rwslice, data);
-                    }
-                }
-            }
-            else
-            {
-                TableCopy::copyColumnData(msIn, colName_i, msOut, colName_i, false);
-            }
-        }   
-    }
 
-    //check output
+        /*I need to implement a function that check which columns should be done by a dedicated MPI rank 
+        which excludes the columnname(s)*/
+        /*Each MPI will be given a modulo for loop,it will */
+        // I need a better implementation of the MPI column copy
+        //First, I need to setup functions to see it better. */
+        copycols(comm_size,comm_rank,msIn,msOut,msTD,colName);
+        MPI_Barrier(MPI_COMM_WORLD);
+        
+        if (isReal(colType)){
+            copycolnamesteps<Float>(comm_size,comm_rank,msIn,msOut,colName,stepsize,nsteps);
+        }
+        else if (isComplex(colType)){
+            copycolnamesteps<Complex>(comm_size,comm_rank,msIn,msOut,colName,stepsize,nsteps);
+        }
+    
+    }
+       
     MPI_Finalize();
-    std::cout << "Done" << std::endl;
     return 0;
 }

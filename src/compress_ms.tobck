@@ -1,0 +1,347 @@
+#include <casacore/tables/DataMan/Adios2StMan.h>
+#include <casacore/ms/MeasurementSets/MeasurementSet.h>
+#include <casacore/tables/Tables/Table.h>
+#include <casacore/tables/Tables/TableCopy.h>
+#include <casacore/tables/Tables/SetupNewTab.h>
+#include <boost/program_options.hpp>
+#include <adios2.h>
+#include <mpi.h>
+
+using namespace casacore;
+namespace po = boost::program_options;
+int set_options(po::variables_map &vm,int argc, char **argv){
+    int status=0;
+    po::options_description hidden;
+    hidden.add_options()
+        ("input_ms", po::value<std::string>()->required(), "MeasurementSet to be compressed")
+        ("output_ms", po::value<std::string>()->required(), "Output name of the compressed MeasurementSet")
+        ("column_name", po::value<std::string>()->required(), "Name of the column to be compressed");
+    po::options_description visible("Allowed Options");
+    visible.add_options()
+        ("help,h", "produce help message")
+        ("config,c", po::value<std::string>(), "Config file name containing argument pairs like \"input_ms=test.ms\"")
+        ("compressor,o", po::value<std::string>()->default_value("mgard"), "The compressor to use, see adios2 installation for valid operators (default: mgard)")
+        ("error_bound,e", po::value<float>()->default_value(0.01), "Error bound used by the compressor to determine the level of compression (default: 0.01)")
+        ("error_bound_type,t", po::value<std::string>()->default_value("ABS"), "The type of error bound (i.e. for MGARD, this is ABS or REL)")
+        ("step_size,s", po::value<int>(), "The size of steps to split the data into (i.e. number of rows), remaining rows will be processed in the last step")
+        ("num_steps,n", po::value<int>(), "The number of steps to split the data into")
+        ("ADIOS2_config, a", po::value<std::string>(), "A yaml/xml config to be passed to the ADIOS2 storage manager. A useful alternative to manually setting the operator parameters.");
+    
+    po::positional_options_description p;
+    p.add("input_ms",1);
+    p.add("output_ms",1);
+    p.add("column_name",1);
+
+    po::options_description desc;
+    desc.add(visible).add(hidden);
+
+    
+    po::store(po::command_line_parser(argc, argv).options(desc).positional(p).run(), vm);
+    if (vm.count("config"))
+    {  
+        std::string config = vm["config"].as<std::string>();
+        std::ifstream ifs(config.c_str());
+        if (!ifs)
+        {
+            throw std::invalid_argument("Could not open config file: " + config);
+        }
+        else
+        {
+            po::store(po::parse_config_file(ifs, desc), vm);
+        }
+    }
+
+    if (vm.count("help") || argc == 1)
+    {
+        std::cout << "Usage: compress_ms <input_ms> <output_ms> <column_name> [opts] \n" << std::endl;
+        std::cout << visible << std::endl;
+        return status=1;
+    }
+    if (!vm.count("input_ms"))
+    {
+        throw std::invalid_argument("'input_ms' argument is required");
+        return status=1;
+    }
+    if (!vm.count("output_ms"))
+    {
+        throw std::invalid_argument("'output_ms' argument is required");
+        return status=1;
+    }
+    if (!vm.count("column_name"))
+    {
+        throw std::invalid_argument("'column_name' argument is required");
+        return status=1;
+    }
+    po::notify(vm);
+    return status;
+}
+
+template <class T>
+void arraycol(Table &msIn,ColumnDesc &msCD,std::string &colName){
+    ArrayColumn<T> dataCol(msIn, colName);
+        if (msCD.options() != ColumnDesc::FixedShape)
+        {
+            msCD.setShape(dataCol.shape(0));
+        }
+}
+
+void bindcoltoadios(SetupNewTable &newTab,std::string &colName, std::string &operation, std::string &errBound, std::string &errBoundType,std::string &configFile){
+    std::cout << "Starting Copy" << std::endl;
+
+            //copy measurement set
+        if (configFile.empty()) {
+            Adios2StMan Adios2stman(
+            MPI_COMM_WORLD,
+            std::string(""),
+            {},
+            {{}},
+            {{{"Variable", colName},
+            {"Operator", operation},
+            {"Accuracy", errBound},
+            {"Mode", errBoundType}}});
+            newTab.bindColumn(colName,Adios2stman);
+
+        }
+        else{
+            Adios2StMan::from_config_t from_config {};
+            Adios2StMan Adios2stman(
+                MPI_COMM_WORLD,
+                configFile,
+                from_config);
+            }
+}
+
+//template <class T>
+//void setupadios(int comm_rank, int comm_size,Table &msIn,adios2::ADIOS &adios,std::string &colname, std::string &operation, std::string &errBound, std::string &errBoundType){
+//    adios2::IO io=adios.DeclareIO("Adios2Stman");
+
+//    ArrayColumn<T> dataCol(msIn, colName);
+//    nrows = dataCol.nrow();
+//    cellShape = dataCol.shape(0);
+//    Array<T> data(cellShape.concatenate(IPosition(1,local_rows)));
+ //   ArrayColumn<T> outCol(msOut, colName);
+    
+    
+//    rwslice = Slicer(IPosition(1,offset), IPosition(1,local_rows));
+//    dataCol.getColumnRange(rwslice, data, True);
+//    std::cout << "cellShape = " << cellShape << std::endl;
+    /* TO MODIFY the size, start and offset to be mindful of the array Data type*/
+//    adios2::Dims size={myfloat.size(),mpisize};
+//    adios2::Dims start={0,mpirank};
+//    adios2::Dims offset={myfloat.size(),1};
+//    adios2::Variable<T> variable=io.DefineVariable<T>(colname,bpFloats, shape, start, offset, adios2::ConstantDims);
+//    adios2::Operator mgardOp = adios.DefineOperator("mgardCompressor", adios2::ops::LossyMGARD);
+    
+//    std::cout << "Rank " << comm_rank
+//          << " nrows=" << nrows
+//          << " offset=" << offset
+//          << " local_rows=" << local_rows
+//          << std::endl;    
+
+    
+ //   variable.AddOperation(mgardOp,
+ //                         {{"accuracy", errBound},
+ //                         {"mode",errBoundType}   // relative L∞ error bound
+ //                          {"s", "1"}               // smoothness parameter
+ //                         });
+
+    
+ //   adios2::Engine bpwriter=bpio.Open("data.bp",adios2::Mode::Write);
+
+ //   bpwriter.BeginStep();
+ //   bpwriter.Put<T>(variable,)
+ //   bpwriter.EndStep();
+
+//}
+void copycols(int comm_size, int comm_rank,Table &msIn, Table &msOut, TableDesc &msTD,std::string &colName){
+    for (uint i=comm_rank; i<msTD.ncolumn(); i+=comm_size)
+        {
+            std::string colName_i = msTD.columnDesc(i).name();
+            if (colName_i !=colName){
+                std::cout << "Copying Column: " + colName_i << std::endl;
+                TableCopy::copyColumnData(msIn, colName_i, msOut, colName_i, false);
+            }
+        }
+}
+
+template <class T>
+void copycolname(int comm_size, int comm_rank,Table &msIn, Table &msOut, std::string &colName, int stepsize, int nsteps){
+    int nrows, laststepsize;
+    IPosition cellShape;
+    Slicer rwslice;
+    ArrayColumn<T> dataCol(msIn, colName);
+    nrows = dataCol.nrow();
+    
+    /*if (stepsize){
+        nsteps = nrows/stepsize;
+        laststepsize = nrows - nsteps*stepsize;
+    }
+    else{
+        stepsize = nrows/nsteps;
+        laststepsize = nrows - nsteps*stepsize;
+    }*/
+    int rows_per_rank = nrows / comm_size;
+    int remainder = nrows % comm_size;
+    int local_rows = rows_per_rank + (comm_rank < remainder ? 1 : 0);
+    int offset = comm_rank * rows_per_rank + std::min(comm_rank, remainder);
+    
+    cellShape = dataCol.shape(0);
+    std::cout << "cellShape = " << cellShape << std::endl;
+
+    //Array<T> data(cellShape.concatenate(IPosition(1,local_rows)));
+    Array<T> data(IPosition(1,local_rows).concatenate(cellShape));
+    ArrayColumn<T> outCol(msOut, colName);
+    std::cout << "Rank " << comm_rank
+          << " nrows=" << nrows
+          << " offset=" << offset
+          << " local_rows=" << local_rows
+          << std::endl;    
+    
+    rwslice = Slicer(IPosition(1,offset), IPosition(1,local_rows));
+    dataCol.getColumnRange(rwslice, data, True);
+    std::cout << "Operating on rank "<< comm_rank <<" with shape " <<data.shape().toString() << std::endl;
+    outCol.putColumnRange(rwslice, data);
+    
+
+    
+    /*rwslice = Slicer(IPosition(1,nsteps*stepsize), IPosition(1, laststepsize));
+    dataCol.getColumnRange(rwslice, data, True);
+    std::cout << "Adding Last step with shape " + data.shape().toString() << std::endl;
+    outCol.putColumnRange(rwslice, data);*/
+    
+        
+}
+
+int main(int argc,  char* argv[])
+{
+    MPI_Init(&argc, &argv);
+    int comm_size, comm_rank, status;
+    MPI_Comm_size(MPI_COMM_WORLD, &comm_size);
+    MPI_Comm_rank(MPI_COMM_WORLD, &comm_rank);
+    po::variables_map vm;
+    status=set_options(vm,argc,argv);
+    if (status !=0){
+        std::cout<<"Error setting up the options"<<std::endl;
+        return 1;
+    }
+    
+
+    
+
+    std::string inFile = vm["input_ms"].as<std::string>();
+    std::string outFile = vm["output_ms"].as<std::string>();
+    std::string colName = vm["column_name"].as<std::string>();
+    std::string operation = vm["compressor"].as<std::string>();
+    std::string errBound = std::to_string(vm["error_bound"].as<float>());
+    std::string errBoundType = vm["error_bound_type"].as<std::string>();
+    int stepsize;
+    int nsteps;
+    std::string configFile;
+
+    if (vm.count("step_size") and vm.count("num_steps"))
+    {
+        throw std::invalid_argument("step_size and num_steps are mutually exclusive, please use one or the other");
+    }
+    else if (!vm.count("step_size") and !vm.count("num_steps"))
+    {
+        std::cout << "Warning: neither step_size nor num_steps were given, assuming a single step. This may fail for very large files." << std::endl;
+        nsteps = 1;
+    }
+    else if (vm.count("step_size"))
+    {
+        stepsize = vm["step_size"].as<int>();
+    }
+    else
+    {
+        nsteps = vm["num_steps"].as<int>();
+    }
+
+    if (vm.count("ADIOS2_config"))
+    {
+        configFile = vm["ADIOS2_config"].as<std::string>();
+    }
+
+        //define adios storage manager
+    Adios2StMan::from_config_t from_config {};
+            Adios2StMan Adios2stman(
+                MPI_COMM_WORLD,
+                configFile,
+                from_config);
+    {
+        std::cout << "Opening MeasurementSet" << std::endl;
+
+        Table msIn(inFile);
+        
+        TableDesc msTD(msIn.tableDesc());
+        ColumnDesc msCD(msTD.columnDesc(colName));
+        DataType colType = msCD.dataType();
+
+        if (isReal(colType))
+        {
+            arraycol<float>(msIn,msCD,colName);            
+        }
+        else if (isComplex(colType))
+        {
+            arraycol<Complex>(msIn,msCD,colName); 
+        }
+        else
+        {
+            throw std::invalid_argument("The type of the column is unrecognised, please ensure it is either float or complex");
+        }
+        
+        if (msCD.options() != ColumnDesc::FixedShape)
+        {
+            msCD.setOptions(ColumnDesc::FixedShape);
+            msTD.removeColumn(colName);
+            msTD.addColumn(msCD);
+        }
+
+
+        Table msOut;
+        SetupNewTable newTab(outFile, msTD, Table::New);
+        
+        //bindcoltoadios(newTab,colName,operation,errBound,errBoundType,configFile);
+        
+        newTab.bindColumn(colName, Adios2stman);
+        MPI_Barrier(MPI_COMM_WORLD);
+        msOut = Table(MPI_COMM_WORLD, newTab);
+    
+        ColumnDesc outColDesc = msOut.tableDesc().columnDesc(colName);
+        outColDesc.setOptions(ColumnDesc::FixedShape);
+        TableCopy::copySubTables(msOut, msIn);
+        std::cout<<msIn.nrow()<<std::endl;
+        msOut.addRow(msIn.nrow());
+        std::cout<<"output rows"<<msOut.nrow()<<std::endl;
+        std::cout<<"errors?"<<std::endl;
+        int nrows, laststepsize;
+        IPosition cellShape;
+        Slicer rwslice;
+
+        /*I need to implement a function that check which columns should be done by a dedicated MPI rank 
+        which excludes the columnname(s)*/
+        /*Each MPI will be given a modulo for loop,it will */
+        // I need a better implementation of the MPI column copy
+        //First, I need to setup functions to see it better. */
+        copycols(comm_size,comm_rank,msIn,msOut,msTD,colName);
+        MPI_Barrier(MPI_COMM_WORLD);
+        
+        if (isReal(colType)){
+            copycolname<float>(comm_size,comm_rank,msIn,msOut,colName,stepsize,nsteps);
+        }
+        else if (isComplex(colType)){
+            copycolname<Complex>(comm_size,comm_rank,msIn,msOut,colName,stepsize,nsteps);
+        }
+    
+        
+
+    //check output
+        std::cout<<"done?"<<std::endl;
+    //sleep(10);
+        std::cout << "Done" << std::endl;
+    msOut.flush();
+    msOut = Table();
+    }
+    MPI_Barrier(MPI_COMM_WORLD);
+    MPI_Finalize();
+    return 0;
+}
