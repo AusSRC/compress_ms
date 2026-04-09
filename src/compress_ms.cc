@@ -125,59 +125,16 @@ void copycols(int comm_size, int comm_rank,Table &msIn, Table &msOut, TableDesc 
 }
 
 
-//template <class T>
-//void copycoladios(int comm_size, int comm_rank,Table &msIn, Table &msOut, std::string &colName, int stepsize, int nsteps){
-//    adios2::ADIOS adios(MPI_COMM_WORLD);
-//    adios2::IO bpio=adios.declareio("adios2stman2");
-//    IPosition cellShape;
-//    Slicer rwslice;
-//    nrows = dataCol.nrow();
-//    int rows_per_rank = nrows / comm_size;
-//   int remainder = nrows % comm_size;
-//    int local_rows = rows_per_rank + (comm_rank < remainder ? 1 : 0);
-//    int offset = comm_rank * rows_per_rank + std::min(comm_rank, remainder);
-    
-//    msOut.addRow(nrows);
-//   cellShape = dataCol.shape(0);
-//    Array<T> data(cellShape.concatenate(IPosition(1,local_rows)));
-//    Array<T> outdata(3,local_rows,cellshape[1],cellshape[0]);
-//    adios2::Variable variable=bpio.DefineVariable<float>(colname,size,start,offset,adios2::ConstantDims);
-//    rwslice = Slicer(IPosition(1,offset), IPosition(1,local_rows));
-//    dataCol.getColumnRange(rwslice, data, False);
-//    /*This will come as an array of [4,120,10000] from stman
-//    We need translate this into [10000,120,4]*/
-//    for(uint c=0;c<cellShape[1];++c){
-//            for(uint p=0;p<cellShape[0];++p){
-//                for (uint r=0;r<local_rows;++r){
-//                outdata(IPosition(3,r,c,p))=data(IPosition(3,p,c,r));
-//            }
-//        }
-//    }
-//    adios2::Dims size={cellShape.concatenate(IPosition(1,nrows))};
-//    adios2::Dims start={IPosition(3,0,0,offset)};
-//    adios2::Dims offset={cellShape.concatenate(IPosition(1,local_rows))};
-//
-//
-//}
+
 template <class T>
 void copycolname(int comm_size, int comm_rank,Table &msIn, Table &msOut, std::string &colName, int stepsize, int nsteps){
-    int nrows, laststepsize;
     
+    int nrows, laststepsize;
     
     IPosition cellShape,outshape;
     Slicer rwslice;
     ArrayColumn<T> dataCol(msIn, colName);
     nrows = dataCol.nrow();
-    
-    /*if (stepsize){
-        nsteps = nrows/stepsize;
-        laststepsize = nrows - nsteps*stepsize;
-    }
-    else{
-        stepsize = nrows/nsteps;
-        laststepsize = nrows - nsteps*stepsize;
-    }*/
-
 
     int rows_per_rank = nrows / comm_size;
     int remainder = nrows % comm_size;
@@ -371,14 +328,11 @@ int main(int argc,  char* argv[])
         IPosition cellShape;
         Slicer rwslice;
 
-        /*I need to implement a function that check which columns should be done by a dedicated MPI rank 
-        which excludes the columnname(s)*/
-        /*Each MPI will be given a modulo for loop,it will */
-        // I need a better implementation of the MPI column copy
-        //First, I need to setup functions to see it better. */
+        /*The following function copy the columns not using specific compression*/
         copycols(comm_size,comm_rank,msIn,msOut,msTD,colName);
         MPI_Barrier(MPI_COMM_WORLD);
-        
+        /*copycolnamesteps read the DATA from the msIn Table and compress it onto msOut
+        The stepsize/nsteps variable has an impact notably on the compression*/
         if (isReal(colType)){
             copycolnamesteps<Float>(comm_size,comm_rank,msIn,msOut,colName,stepsize,nsteps);
         }
