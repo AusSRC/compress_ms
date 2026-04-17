@@ -191,7 +191,8 @@ void copycolnamesteps(int comm_size, int comm_rank,Table &msIn, Table &msOut, st
     else{
         remainder = nrows%nsteps;
         stepsize = nrows/nsteps;
-        laststepsize = nrows - nsteps*stepsize;
+        std::cout<<"remainder="<<remainder<<",nsteps="<<nsteps<<std::endl;
+        laststepsize = (remainder == 0 ? stepsize : stepsize+ nrows - nsteps*stepsize);
     }
 
     cellShape = dataCol.shape(0);
@@ -202,16 +203,15 @@ void copycolnamesteps(int comm_size, int comm_rank,Table &msIn, Table &msOut, st
 
     for (uint i=comm_rank;i<nsteps;i+=comm_size){
         if (i == nsteps-1){
-            std::cout<<"i="<<i<<",laststep"<<std::endl;
+            std::cout<<"rank="<<comm_rank<<" row="<<i*stepsize<<"to "<<i*stepsize+laststepsize<<std::endl;
             rwslice=Slicer(IPosition(1,i*stepsize),IPosition(1,laststepsize));
             Array<T> data(cellShape.concatenate(IPosition(1,laststepsize)));
             dataCol.getColumnRange(rwslice, data, False);
             std::cout << "Operating on rank "<< comm_rank <<" with shape " <<data.shape().toString() << std::endl;
             outCol.putColumnRange(rwslice,data);
-            outCol.putColumnRange(rwslice,data);
         }
         else{
-            std::cout<<"i="<<i<<",laststepsize="<<laststepsize<<std::endl;
+            std::cout<<"rank="<<comm_rank<<" row="<<i*stepsize<<"to "<<(i+1)*stepsize<<std::endl;
             rwslice=Slicer(IPosition(1,i*stepsize),IPosition(1,stepsize));
             Array<T> data(cellShape.concatenate(IPosition(1,stepsize)));
             dataCol.getColumnRange(rwslice, data, False);

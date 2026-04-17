@@ -47,15 +47,15 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/compress_ms")
     file(RPATH_CHECK
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/compress_ms"
-         RPATH "/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib:/opt/spack/var/spack/environments/spack-env/.spack-env/._view/47hcol5ewflv2kvzpma6a4iwugme4ou2/lib")
+         RPATH "/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib:/opt/spack/var/spack/environments/spack-env/.spack-env/._view/nn7n4loaxe4ahyoq6adgnnochocacag6/lib")
   endif()
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/mnt/compress_ms/src/compress_ms")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/compress_ms" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/compress_ms")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/compress_ms"
-         OLD_RPATH "/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib:/opt/spack/var/spack/environments/spack-env/.spack-env/._view/47hcol5ewflv2kvzpma6a4iwugme4ou2/lib:"
-         NEW_RPATH "/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib:/opt/spack/var/spack/environments/spack-env/.spack-env/._view/47hcol5ewflv2kvzpma6a4iwugme4ou2/lib")
+         OLD_RPATH "/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib:/opt/spack/var/spack/environments/spack-env/.spack-env/._view/nn7n4loaxe4ahyoq6adgnnochocacag6/lib:"
+         NEW_RPATH "/opt/spack/var/spack/environments/spack-env/.spack-env/view/lib:/opt/spack/var/spack/environments/spack-env/.spack-env/._view/nn7n4loaxe4ahyoq6adgnnochocacag6/lib")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/compress_ms")
     endif()

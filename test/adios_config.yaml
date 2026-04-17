@@ -6,10 +6,10 @@
     - Variable: "DATA_mgard"
       Operations:
         - Type: mgard
-          tolerance: 0.01
+          tolerance: 0.3
           lossless: Huffman_Zstd
           mode: ABS
-          s: 1
+          s: inf
     - Variable: "DATA_zfp"
       Operations:
         - Type: zfp
